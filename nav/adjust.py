@@ -4,7 +4,7 @@ def convertToCelsius(degree):
     degree = degree - 32
     degree = degree * 5
     degree = degree / 9
-    return float(degree)
+    return degree
 
 def adjust(values = None):
     isWrongType = False
