@@ -76,6 +76,22 @@ class adjustTest(unittest.TestCase):
     #    
     #    self.assertEquals(nav.adjust(preDict), postDict)
     
+    def test100_030ShouldSetValuesOfOptionalParmIfMissing(self):
+        preDict = {
+            "observation": "13d51.6"
+            }
+        
+        postDict = {
+            "altitude": "1",
+            "observation": "13d51.6",
+            "height" : "0",
+            "temperature": "72",
+            "pressure": "1010",
+            "horizon": "natural"
+        }
+        
+        self.assertEquals(nav.adjust(preDict), postDict)
+    
     ###################################################################################################
     # Sad Path Test
     #def test000_010ShouldReturnDictWithKeyErrorIfWrongParmType(self):
@@ -98,22 +114,22 @@ class adjustTest(unittest.TestCase):
     # 
     #     self.assertEquals(nav.adjust(preDict), postDict)
     
-    def test000_020ShouldReturnDictWithKeyErrorIfBoundaryExceedsSpecifications(self):
-        preDict = {
-            "observation": "13d51.6",
-            "height": "-5",
-            "temperature": "72",
-            "pressure": "1010",
-            "horizon": "natural"
-            }
-        
-        postDict = {
-            "error": "parm exceeds boundary limit",
-            "observation": "13d51.6",
-            "height" : "-5",
-            "temperature": "72",
-            "pressure": "1010",
-            "horizon": "natural"
-        }
-        
-        self.assertEquals(nav.adjust(preDict), postDict)
+    #def test000_020ShouldReturnDictWithKeyErrorIfBoundaryExceedsSpecifications(self):
+    #    preDict = {
+    #        "observation": "13d51.6",
+    #        "height": "-5",
+    #        "temperature": "72",
+    #        "pressure": "1010",
+    #        "horizon": "natural"
+    #        }
+    #    
+    #    postDict = {
+    #        "error": "parm exceeds boundary limit",
+    #        "observation": "13d51.6",
+    #        "height" : "-5",
+    #        "temperature": "72",
+    #        "pressure": "1010",
+    #        "horizon": "natural"
+    #    }
+    #    
+    #    self.assertEquals(nav.adjust(preDict), postDict)
