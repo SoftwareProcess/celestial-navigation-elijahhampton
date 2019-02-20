@@ -117,3 +117,22 @@ class DispatchTest(unittest.TestCase):
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
 
+
+    ####################### Dispatch Acceptance Test ####################
+    #Parameters
+    # Happy Path
+    def test500_010ShouldRunWithCorrectParameters(self):
+        pass
+    
+    # Sad Path
+    def test510_010ShouldCombineKeyToLeftMostValueIfDuplicateName(self):
+        dupValues = {
+            "op": "op1",
+            "op": "op2"
+        }
+        
+        realValues = {
+            "op": "op1"
+        }
+        
+        self.assertEquals(nav.dispatch(dupValues), nav.dispatch(realValues))

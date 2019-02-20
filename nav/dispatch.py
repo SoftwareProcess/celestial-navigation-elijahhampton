@@ -1,4 +1,5 @@
 import adjust
+    
 def dispatch(values=None):
 
     #Validate parm
@@ -9,6 +10,9 @@ def dispatch(values=None):
     if (not('op' in values)):
         values['error'] = 'no op  is specified'
         return values
+    
+    #Check parm
+    
 
     #Perform designated function
     if(values['op'] == 'adjust'):
