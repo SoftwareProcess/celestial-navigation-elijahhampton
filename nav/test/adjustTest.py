@@ -101,7 +101,7 @@ class adjustTest(unittest.TestCase):
     def test000_020ShouldReturnDictWithKeyErrorIfBoundaryExceedsSpecifications(self):
         preDict = {
             "observation": "13d51.6",
-            "height": "33",
+            "height": "-5",
             "temperature": "72",
             "pressure": "1010",
             "horizon": "natural"
@@ -110,7 +110,7 @@ class adjustTest(unittest.TestCase):
         postDict = {
             "error": "parm exceeds boundary limit",
             "observation": "13d51.6",
-            "height" : "33",
+            "height" : "-5",
             "temperature": "72",
             "pressure": "1010",
             "horizon": "natural"
