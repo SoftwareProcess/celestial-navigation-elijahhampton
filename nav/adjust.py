@@ -58,5 +58,6 @@ def adjust(values = None):
     if (not('horizon' in values)):
         values['horizon'] = 'natural'
         
+        
     values['altitude'] = '1'
     return values

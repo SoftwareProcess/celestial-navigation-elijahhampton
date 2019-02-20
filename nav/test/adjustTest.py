@@ -76,21 +76,42 @@ class adjustTest(unittest.TestCase):
     #    
     #    self.assertEquals(nav.adjust(preDict), postDict)
     
-    def test100_030ShouldSetValuesOfOptionalParmIfMissing(self):
+    #def test100_030ShouldSetValuesOfOptionalParmIfMissing(self):
+    #    preDict = {
+    #        "observation": "13d51.6"
+    #        }
+    #    
+    #    postDict = {
+    #        "altitude": "1",
+    #        "observation": "13d51.6",
+    #        "height" : "0",
+    #        "temperature": "72",
+    #        "pressure": "1010",
+    #       "horizon": "natural"
+    #    }
+    #    
+    #    self.assertEquals(nav.adjust(preDict), postDict)
+    
+    def test100_040ShouldReturnValuesWithCorrectAdjustment(self):
         preDict = {
-            "observation": "13d51.6"
+            "observation": "30d1.5",
+            "height": "19.0",
+            "temperature": "85",
+            "pressure": "1000",
+            "horizon": "artificial"
             }
         
         postDict = {
-            "altitude": "1",
-            "observation": "13d51.6",
-            "height" : "0",
-            "temperature": "72",
-            "pressure": "1010",
-            "horizon": "natural"
-        }
+            "altitude": "29d59.9",
+            "observation": "30d1.5",
+            "height": "19.0",
+            "temperature": "85",
+            "pressure": "1000",
+            "horizon": "artificial"
+            }
         
         self.assertEquals(nav.adjust(preDict), postDict)
+        pass
     
     ###################################################################################################
     # Sad Path Test
