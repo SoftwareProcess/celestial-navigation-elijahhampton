@@ -97,3 +97,23 @@ class adjustTest(unittest.TestCase):
     #    }
     # 
     #     self.assertEquals(nav.adjust(preDict), postDict)
+    
+    def test000_020ShouldReturnDictWithKeyErrorIfBoundaryExceedsSpecifications(self):
+        preDict = {
+            "observation": "13d51.6",
+            "height": "33",
+            "temperature": "72",
+            "pressure": "1010",
+            "horizon": "natural"
+            }
+        
+        postDict = {
+            "error": "parm exceeds boundary limit",
+            "observation": "13d51.6",
+            "height" : "33",
+            "temperature": "72",
+            "pressure": "1010",
+            "horizon": "natural"
+        }
+        
+        self.assertEquals(nav.adjust(preDict), postDict)
