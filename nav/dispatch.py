@@ -10,6 +10,8 @@ def handleDuplicateParm(values):
         
     for y in operationsList:
         for z in operationsList[:z-1]:
+            print(y)
+            print(z)
             if ( y is z ):
                 continue
             
