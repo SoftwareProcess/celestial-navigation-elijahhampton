@@ -1,7 +1,10 @@
 from math import sqrt
 
 def convertToCelsius(degree):
-    pass
+    degree = degree - 32
+    degree = degree * 5
+    degree = degree / 9
+    return degree
 
 def adjust(values = None):
     isWrongType = False
