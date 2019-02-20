@@ -34,10 +34,33 @@ class adjustTest(unittest.TestCase):
     #        horizing - defaults to "natural" if missing
     #        other - ignore
     #        wrong type - default to value
-    # Happy Path Analysis
-    def test100_010ShouldReturnDictWithKeyAltitudeIfCorrectParmTypes(self):
+    #################################################################################################
+    # Happy Path Test
+    # def test100_010ShouldReturnDictWithKeyAltitudeIfCorrectParmTypes(self):
+    #    preDict = {
+    #        "observation": "13d51.6",
+    #        "height": "33",
+    #        "temperature": "72",
+    #        "pressure": "1010",
+    #        "horizon": "natural"
+    #        }
+    #    
+    #    postDict = {
+    #        "altitude": "1",
+    #        "observation": "13d51.6",
+    #        "height" : "33",
+    #        "temperature": "72",
+    #        "pressure": "1010",
+    #        "horizon": "natural"
+    #    }
+    #    
+    #    self.assertEquals(nav.adjust(preDict), postDict)
+    
+    ###################################################################################################
+    # Sad Path Test
+    def test000_010ShouldReturnDictWithKeyErrorIfWrongParmType(self):
         preDict = {
-            "observation": "13d51.6",
+            "observation": 5,
             "height": "33",
             "temperature": "72",
             "pressure": "1010",
@@ -45,13 +68,12 @@ class adjustTest(unittest.TestCase):
             }
         
         postDict = {
-            "altitude": "1",
+            "error": "error",
             "observation": "13d51.6",
             "height" : "33",
             "temperature": "72",
             "pressure": "1010",
             "horizon": "natural"
         }
-        
+    
         self.assertEquals(nav.adjust(preDict), postDict)
-        

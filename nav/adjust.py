@@ -7,7 +7,4 @@ def adjust(values = None):
     
     if (hasWrongType is True):
         values['error'] = 'error'
-        
-        
-    values['altitude'] = '1'
     return values
