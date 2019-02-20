@@ -12,7 +12,7 @@ def adjust(values = None):
         return
     
     #check boundary values 13d51.6
-    for y,v in values:
+    for y in values:
         if (y is 'observation'):
             dPattern = "d"
             observationValueAsInt = int(values['observation'])
@@ -36,7 +36,7 @@ def adjust(values = None):
             if (pressureValueAsInt < 100 or pressureValueAsInt > 1100):
                 isBoundaryError = True
         if (y is 'horizon'):
-            if ( v != 'natural' or v != 'artificial' or v != ''):
+            if (values['horizon'] != 'natural' or values['horizon'] != 'artificial' or values['horizon'] != ''):
                 isBoundaryError = True
     
     if (isBoundaryError == True):
