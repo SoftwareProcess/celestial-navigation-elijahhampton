@@ -13,7 +13,7 @@ def adjust(values = None):
     
     print('atleast here')
     
-    #check boundary values 13d51.6
+    #check boundary values
     for y in values:
         if (y is 'observation'):
             dPattern = "d"
@@ -48,6 +48,15 @@ def adjust(values = None):
         return values
     
     
-    
+    #check and set optional parms if missing
+    if (not('height' in values)):
+        values['height'] = '0'
+    if (not('temperature' in values)):
+        values['temperature'] = '72'
+    if (not('pressure' in values)):
+        values['pressure'] = '1100'
+    if (not('horizon' in values)):
+        values['horizon'] = 'natural'
+        
     values['altitude'] = '1'
     return values
