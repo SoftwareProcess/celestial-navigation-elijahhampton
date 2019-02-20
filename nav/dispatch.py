@@ -2,15 +2,23 @@ import adjust
 
 def handleDuplicateParm(values):
     dupCounter = 0
+    newParmList = []
     operationsList = []
     
     for x in values:
         operationsList.append(x)
         
     for y in operationsList:
-        
-        
-    pass
+        for z in operationsList[:z-1]:
+            if ( y is z ):
+                continue
+            
+        for z in operationsList[z: ]:
+            if ( y is z ):
+                continue
+            
+        newParmList.add(y)       
+    return newParmList;
     
 def dispatch(values=None):
 
