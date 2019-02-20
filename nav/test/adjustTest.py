@@ -1,6 +1,5 @@
 import unittest
 import nav.adjust as nav
-import nav.adjust.convertToCelsius as convertToCelsius
 from jinja2.utils import missing
 
 class adjustTest(unittest.TestCase):
