@@ -25,10 +25,12 @@ def adjust(values = None):
             
             if (minutePortionOfAltitude < 0.0 or minutePortionOfAltitude > 60.0):
                 isBoundaryError = True
+        print('about to see height')
         if (y is 'height'):
             heightValueAsInt = int(values['height'])
             if (heightValueAsInt < 0):
                 isBoundaryError = True
+        print('done with height')
         if (y is 'temperature'):
             temperatureValueAsInt = int(values['temperature'])
             if (temperatureValueAsInt < -20 or temperatureValueAsInt > 120):
