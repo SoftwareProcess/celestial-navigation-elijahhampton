@@ -56,25 +56,25 @@ class adjustTest(unittest.TestCase):
     #    
     #    self.assertEquals(nav.adjust(preDict), postDict)
     
-    def test100_020ShouldReturnDictWithKeyAltitudeIfCorrectParmBoundaries(self):
-        preDict = {
-            "observation": "13d51.6",
-            "height": "33",
-            "temperature": "72",
-            "pressure": "1010",
-            "horizon": "natural"
-            }
-        
-        postDict = {
-            "altitude": "1",
-            "observation": "13d51.6",
-            "height" : "33",
-            "temperature": "72",
-            "pressure": "1010",
-            "horizon": "natural"
-        }
-        
-        self.assertEquals(nav.adjust(preDict), postDict)
+    #def test100_020ShouldReturnDictWithKeyAltitudeIfCorrectParmBoundaries(self):
+    #    preDict = {
+    #        "observation": "13d51.6",
+    #        "height": "33",
+    #        "temperature": "72",
+    #        "pressure": "1010",
+    #        "horizon": "natural"
+    #        }
+    #    
+    #    postDict = {
+    #        "altitude": "1",
+    #        "observation": "13d51.6",
+    #        "height" : "33",
+    #        "temperature": "72",
+    #        "pressure": "1010",
+    #        "horizon": "natural"
+    #    }
+    #    
+    #    self.assertEquals(nav.adjust(preDict), postDict)
     
     ###################################################################################################
     # Sad Path Test
