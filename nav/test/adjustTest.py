@@ -56,11 +56,9 @@ class adjustTest(unittest.TestCase):
     #    
     #    self.assertEquals(nav.adjust(preDict), postDict)
     
-    ###################################################################################################
-    # Sad Path Test
-    def test000_010ShouldReturnDictWithKeyErrorIfWrongParmType(self):
+    def test100_020ShouldReturnDictWithKeyAltitudeIfCorrectParmBoundaries(self):
         preDict = {
-            "observation": 5,
+            "observation": "13d51.6",
             "height": "33",
             "temperature": "72",
             "pressure": "1010",
@@ -68,12 +66,34 @@ class adjustTest(unittest.TestCase):
             }
         
         postDict = {
-            "error": "error with parm types",
-            "observation": 5,
+            "altitude": "1",
+            "observation": "13d51.6",
             "height" : "33",
             "temperature": "72",
             "pressure": "1010",
             "horizon": "natural"
         }
-    
+        
         self.assertEquals(nav.adjust(preDict), postDict)
+    
+    ###################################################################################################
+    # Sad Path Test
+    #def test000_010ShouldReturnDictWithKeyErrorIfWrongParmType(self):
+    #    preDict = {
+    #        "observation": 5,
+    #        "height": "33",
+    #        "temperature": "72",
+    #        "pressure": "1010",
+    #        "horizon": "natural"
+    #        }
+    #    
+    #    postDict = {
+    #        "error": "error with parm types",
+    #        "observation": 5,
+    #        "height" : "33",
+    #        "temperature": "72",
+    #        "pressure": "1010",
+    #        "horizon": "natural"
+    #    }
+    # 
+    #     self.assertEquals(nav.adjust(preDict), postDict)
