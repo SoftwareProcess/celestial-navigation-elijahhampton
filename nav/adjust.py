@@ -63,13 +63,7 @@ def adjust(values = None):
     if (not('horizon' in values)):
         values['horizon'] = 'natural'
     
-    #perform adjustment
-    dip = 0
-    
-    if (values['horizon'] == 'natural'):
-        dip = (-0.97 * sqrt(values['height'])) / 60)
-    
-        
+    #perform adjustment  
         
     values['altitude'] = '1'
     return values
