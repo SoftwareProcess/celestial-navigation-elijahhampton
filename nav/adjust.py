@@ -36,7 +36,7 @@ def adjust(values = None):
             if (pressureValueAsInt < 100 or pressureValueAsInt > 1100):
                 isBoundaryError = True
         if (y is 'horizon'):
-            if (horizonValueAsInt != 'natural' or horizonValueAsInt != 'artificial' or horizonValueAsInt != ''):
+            if (y['horizon'] != 'natural' or y['horizon'] != 'artificial' or y['horizon'] != ''):
                 isBoundaryError = True
     
     if (isBoundaryError == True):
