@@ -7,7 +7,8 @@ def adjust(values = None):
     
     if (hasWrongType is True):
         values['error'] = 'error with parm types'
+        return
         
     
-        
+    values['altitude'] = '1'
     return values
