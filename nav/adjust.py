@@ -54,7 +54,7 @@ def adjust(values = None):
     if (not('temperature' in values)):
         values['temperature'] = '72'
     if (not('pressure' in values)):
-        values['pressure'] = '1100'
+        values['pressure'] = '1010'
     if (not('horizon' in values)):
         values['horizon'] = 'natural'
         
