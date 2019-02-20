@@ -11,6 +11,8 @@ def adjust(values = None):
         values['error'] = 'error with parm types'
         return
     
+    print('atleast here')
+    
     #check boundary values 13d51.6
     for y in values:
         if (y is 'observation'):
