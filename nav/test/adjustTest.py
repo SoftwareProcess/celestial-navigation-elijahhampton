@@ -68,7 +68,7 @@ class adjustTest(unittest.TestCase):
             }
         
         postDict = {
-            "error": "error",
+            "error": "error with parm types",
             "observation": "13d51.6",
             "height" : "33",
             "temperature": "72",

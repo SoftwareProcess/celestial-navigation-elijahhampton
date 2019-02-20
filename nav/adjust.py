@@ -6,5 +6,6 @@ def adjust(values = None):
             hasWrongType = True
     
     if (hasWrongType is True):
-        values['error'] = 'error'
+        values['error'] = 'error with parm types'
+        
     return values
