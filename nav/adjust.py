@@ -9,7 +9,7 @@ def adjust(values = None):
     
     if (isWrongType is True):
         values['error'] = 'error with parm types'
-        return
+        return values
     
     print('atleast here')
     
@@ -45,8 +45,7 @@ def adjust(values = None):
     
     if (isBoundaryError == True):
         values['error'] = 'parm exceeds boundary limit'
-        print('error occured with bound')
-        return
+        return values
     
     values['altitude'] = '1'
     return values
