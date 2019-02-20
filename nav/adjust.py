@@ -45,6 +45,7 @@ def adjust(values = None):
     
     if (isBoundaryError == True):
         values['error'] = 'parm exceeds boundary limit'
+        print('error occured with bound')
         return
     
     values['altitude'] = '1'
