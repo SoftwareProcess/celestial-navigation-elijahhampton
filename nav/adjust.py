@@ -15,10 +15,10 @@ def adjust(values = None):
     for y in values:
         if (y is 'observation'):
             dPattern = "d"
-            observationValueAsInt = int(values['observation'])
-            degreePortionOfAltitude = int(observationValueAsInt.split("d",1)[0])
-            minutePortionOfAltitude = float(observationValueAsInt.split("d",1)[1])
-            if (observationValueAsInt < 0 or observationValueAsInt > 90):
+            observationValue = values['observation']
+            degreePortionOfAltitude = int(observationValue.split("d",1)[0])
+            minutePortionOfAltitude = float(observationValue.split("d",1)[1])
+            if (degreePortionOfAltitude < 0 or degreePortionOfAltitude > 90):
                 isBoundaryError = True
             
             if (minutePortionOfAltitude < 0.0 or minutePortionOfAltitude > 60.0):
