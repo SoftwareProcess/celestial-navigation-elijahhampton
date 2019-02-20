@@ -1,4 +1,16 @@
 import adjust
+
+def handleDuplicateParm(values):
+    dupCounter = 0
+    operationsList = []
+    
+    for x in values:
+        operationsList.append(x)
+        
+    for y in operationsList:
+        
+        
+    pass
     
 def dispatch(values=None):
 
