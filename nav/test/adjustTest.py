@@ -1,5 +1,6 @@
 import unittest
 import nav.adjust as nav
+import nav.adjust.convertToCelsius as convertToCelsius
 from jinja2.utils import missing
 
 class adjustTest(unittest.TestCase):
@@ -92,26 +93,30 @@ class adjustTest(unittest.TestCase):
     #    
     #    self.assertEquals(nav.adjust(preDict), postDict)
     
-    def test100_040ShouldReturnValuesWithCorrectAdjustment(self):
-        preDict = {
-            "observation": "30d1.5",
-            "height": "19.0",
-            "temperature": "85",
-            "pressure": "1000",
-            "horizon": "artificial"
-            }
-        
-        postDict = {
-            "altitude": "29d59.9",
-            "observation": "30d1.5",
-            "height": "19.0",
-            "temperature": "85",
-            "pressure": "1000",
-            "horizon": "artificial"
-            }
-        
-        self.assertEquals(nav.adjust(preDict), postDict)
-        pass
+    def test110_010ShouldConvertCelsius(self):
+        valueInFahrenheight = 100
+        self.assertAlmostEqual(convertToCelsius(valueInFahrenheight), 37.7778)
+    
+    #def test100_040ShouldReturnValuesWithCorrectAdjustment(self):
+    #    preDict = {
+    #        "observation": "30d1.5",
+    #        "height": "19.0",
+    #        "temperature": "85",
+    #        "pressure": "1000",
+    #        "horizon": "artificial"
+    #        }
+    #    
+    #    postDict = {
+    #        "altitude": "29d59.9",
+#   #        "observation": "30d1.5",
+#             "height": "19.0",
+#             "temperature": "85",
+#             "pressure": "1000",
+#             "horizon": "artificial"
+#             }
+#         
+#         self.assertEquals(nav.adjust(preDict), postDict)
+#         pass
     
     ###################################################################################################
     # Sad Path Test

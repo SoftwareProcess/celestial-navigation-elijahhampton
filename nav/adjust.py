@@ -1,3 +1,8 @@
+from math import sqrt
+
+def convertToCelsius(degree):
+    pass
+
 def adjust(values = None):
     isWrongType = False
     isBoundaryError = False
@@ -57,6 +62,13 @@ def adjust(values = None):
         values['pressure'] = '1010'
     if (not('horizon' in values)):
         values['horizon'] = 'natural'
+    
+    #perform adjustment
+    dip = 0
+    
+    if (values['horizon'] == 'natural'):
+        dip = (-0.97 * sqrt(values['height'])) / 60)
+    
         
         
     values['altitude'] = '1'
