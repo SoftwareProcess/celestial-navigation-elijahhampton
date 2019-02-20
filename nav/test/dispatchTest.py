@@ -127,12 +127,12 @@ class DispatchTest(unittest.TestCase):
     # Sad Path
     def test510_010ShouldCombineKeyToLeftMostValueIfDuplicateName(self):
         dupValues = {
-            "op": "op1",
-            "op": "op2"
+            "adjust": "op1",
+            "adjust": "op2"
         }
         
         realValues = {
-            "op": "op1"
+            "adjust": "op1"
         }
         
         self.assertEquals(nav.dispatch(dupValues), nav.dispatch(realValues))
