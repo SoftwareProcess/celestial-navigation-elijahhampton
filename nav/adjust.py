@@ -9,5 +9,5 @@ def adjust(values = None):
         values['error'] = 'error'
         
         
-        values['altitude'] = '1'
+    values['altitude'] = '1'
     return values
