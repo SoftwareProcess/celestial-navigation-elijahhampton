@@ -8,6 +8,8 @@ def handleDuplicateParm(values):
     for x in values:
         operationsList.append(x)
         
+    
+        
     for y in operationsList:
         for z in operationsList[:z-1]:
             print(y)
@@ -34,7 +36,7 @@ def dispatch(values=None):
         return values
     
     #Check parm
-    
+    handleDuplicateParm(values)
 
     #Perform designated function
     if(values['op'] == 'adjust'):

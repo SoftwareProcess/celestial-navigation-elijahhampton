@@ -116,23 +116,3 @@ class DispatchTest(unittest.TestCase):
         result = self.microservice()
         resultDictionary = self.string2dict(result)
         self.assertTrue(resultDictionary.has_key("error"), True)
-
-
-    ####################### Dispatch Acceptance Test ####################
-    #Parameters
-    # Happy Path
-    def test500_010ShouldRunWithCorrectParameters(self):
-        pass
-    
-    # Sad Path
-    def test510_010ShouldCombineKeyToLeftMostValueIfDuplicateName(self):
-        dupValues = {
-            "op": "adjust",
-            "op": "predict"
-        }
-        
-        realValues = {
-            "op": "adjust"
-        }
-        
-        self.assertEquals(nav.dispatch(dupValues), nav.dispatch(realValues))
