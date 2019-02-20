@@ -93,7 +93,7 @@ class adjustTest(unittest.TestCase):
     #    self.assertEquals(nav.adjust(preDict), postDict)
     
     def test110_010ShouldConvertCelsius(self):
-        valueInFahrenheight = 100
+        valueInFahrenheight = 100.00
         self.assertAlmostEqual(nav.convertToCelsius(valueInFahrenheight), 37.7778)
     
     #def test100_040ShouldReturnValuesWithCorrectAdjustment(self):
