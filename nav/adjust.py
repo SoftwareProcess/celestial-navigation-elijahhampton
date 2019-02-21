@@ -6,6 +6,9 @@ def convertToCelsius(degree):
     degree = degree / 9
     return degree
 
+def tangent(degree):
+    pass
+
 def adjust(values = None):
     isWrongType = False
     isBoundaryError = False
@@ -28,7 +31,7 @@ def adjust(values = None):
             observationValue = values['observation']
             degreePortionOfAltitude = int(observationValue.split("d",1)[0])
             minutePortionOfAltitude = float(observationValue.split("d",1)[1])
-            if (degreePortionOfAltitude < 0 or degreePortionOfAltitude > 90):
+            if (degreePortionOfAltitude < 1 or degreePortionOfAltitude > 90):
                 isBoundaryError = True
             
             if (minutePortionOfAltitude < 0.0 or minutePortionOfAltitude > 60.0):

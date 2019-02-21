@@ -92,10 +92,13 @@ class adjustTest(unittest.TestCase):
     #    
     #    self.assertEquals(nav.adjust(preDict), postDict)
     
-    def test110_010ShouldConvertCelsius(self):
-        valueInFahrenheight = 100.00
-        self.assertAlmostEqual(nav.convertToCelsius(valueInFahrenheight), 37.77)
+#     def test110_010ShouldConvertCelsius(self):
+#         valueInFahrenheight = 100.00
+#         self.assertAlmostEqual(int(nav.convertToCelsius(valueInFahrenheight)), 37)
     
+    def test120_010ShouldReturnCorrectTangentInDegrees(self):
+        pass
+      
     #def test100_040ShouldReturnValuesWithCorrectAdjustment(self):
     #    preDict = {
     #        "observation": "30d1.5",

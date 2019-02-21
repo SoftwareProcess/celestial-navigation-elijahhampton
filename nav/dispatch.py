@@ -1,29 +1,5 @@
 import adjust
 
-def handleDuplicateParm(values):
-    dupCounter = 0
-    newParmList = []
-    operationsList = []
-    
-    for x in values:
-        operationsList.append(x)
-        
-    
-        
-    for y in operationsList:
-        for z in operationsList[:z-1]:
-            print(y)
-            print(z)
-            if ( y is z ):
-                continue
-            
-        for z in operationsList[z: ]:
-            if ( y is z ):
-                continue
-            
-        newParmList.add(y)       
-    return newParmList;
-    
 def dispatch(values=None):
 
     #Validate parm
@@ -34,9 +10,6 @@ def dispatch(values=None):
     if (not('op' in values)):
         values['error'] = 'no op  is specified'
         return values
-    
-    #Check parm
-    handleDuplicateParm(values)
 
     #Perform designated function
     if(values['op'] == 'adjust'):
