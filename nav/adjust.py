@@ -6,8 +6,16 @@ def convertToCelsius(degree):
     degree = degree / 9
     return degree
 
-def tangent(degree):
-    pass
+def tangent(observation):
+    x = float(observation.split("d",1)[0])
+    y = float(observation.split("d",1)[1])
+    
+    #calculate tangent
+    tangentInDegrees = x + (y/60)
+    
+    #convert degrees to radians
+    tangentInRadians = tangentInDegrees * (3.14/180)
+    return tangentInRadians
 
 def adjust(values = None):
     isWrongType = False
