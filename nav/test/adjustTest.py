@@ -97,6 +97,10 @@ class adjustTest(unittest.TestCase):
 #         self.assertAlmostEqual(int(nav.convertToCelsius(valueInFahrenheight)), 37)
     
     def test120_010ShouldReturnCorrectTangentInDegrees(self):
+        testObservation = "13d51.6"
+        actualResult = nav.tangent("13d51.6")
+        expectedresult = .2419
+        self.assertAlmostEqual(actualResult, expectedresult)
         pass
       
     #def test100_040ShouldReturnValuesWithCorrectAdjustment(self):
