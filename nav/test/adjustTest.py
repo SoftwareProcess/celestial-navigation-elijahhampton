@@ -100,7 +100,7 @@ class adjustTest(unittest.TestCase):
         testObservation = "13d51.6"
         actualResult = nav.tangent("13d51.6")
         expectedresult = .2419
-        self.assertAlmostEqual(actualResult, expectedresult, 8)
+        self.assertAlmostEqual(actualResult, expectedresult, 5)
         pass
       
     #def test100_040ShouldReturnValuesWithCorrectAdjustment(self):
