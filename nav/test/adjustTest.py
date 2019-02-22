@@ -114,7 +114,11 @@ class adjustTest(unittest.TestCase):
             "horizon": "artificial"
             }
         
-        self.assertEqual(nav.adjust(preDict), postDict)
+        dict = nav.adjust(preDict)
+        expected = dict['altitude']
+        actual = '29d59.9'
+        
+        self.assertAlmostEqual(expected, actual, 2,)
       
 
 
