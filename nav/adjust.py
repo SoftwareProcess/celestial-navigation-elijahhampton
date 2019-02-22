@@ -78,6 +78,7 @@ def adjust(values = None):
         values['horizon'] = 'natural'
     
     #perform adjustment  
+    
         
     values['altitude'] = '1'
     return values

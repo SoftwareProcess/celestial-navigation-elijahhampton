@@ -96,12 +96,25 @@ class adjustTest(unittest.TestCase):
 #         valueInFahrenheight = 100.00
 #         self.assertAlmostEqual(int(nav.convertToCelsius(valueInFahrenheight)), 37)
     
-    def test120_010ShouldReturnCorrectTangentInDegrees(self):
-        testObservation = "13d51.6"
-        actualResult = nav.tangent("13d51.6")
-        expectedresult = .2419
-        self.assertAlmostEqual(actualResult, expectedresult, 2)
-        pass
+    def test120_010ShouldReturnCorrectAltitude(self):
+        preDict = {
+            "observation": "30d1.5",
+            "height": "19",
+            "temperature": "85",
+            "pressure": "1000",
+            "horizon": "artificial"
+            }
+        
+        postDict = {
+             "altitude": "29d59.9",
+            "observation": "30d1.5",
+            "height": "19",
+            "temperature": "85",
+            "pressure": "1000",
+            "horizon": "artificial"
+            }
+        
+        self.assertAlmostEqual(nav.adjust(preDict), postDict)
       
     #def test100_040ShouldReturnValuesWithCorrectAdjustment(self):
     #    preDict = {
