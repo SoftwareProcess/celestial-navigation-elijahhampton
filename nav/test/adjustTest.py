@@ -116,8 +116,7 @@ class adjustTest(unittest.TestCase):
         
         self.assertEqual(nav.adjust(preDict), postDict)
       
-    #def test100_040ShouldReturnValuesWithCorrectAdjustment(self):
-    #    preDict = {
+
     #        "observation": "30d1.5",
     #        "height": "19.0",
     #        "temperature": "85",
