@@ -117,6 +117,7 @@ class adjustTest(unittest.TestCase):
         self.assertEqual(nav.adjust(preDict), postDict)
       
 
+
     #        "observation": "30d1.5",
     #        "height": "19.0",
     #        "temperature": "85",
