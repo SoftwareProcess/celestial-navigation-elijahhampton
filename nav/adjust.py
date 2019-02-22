@@ -7,7 +7,7 @@ def convertToCelsius(degree):
     return degree
 
 def tangent(observation):
-    x = float(observation.split("d",1)[0])
+    x = int(observation.split("d",1)[0])
     y = float(observation.split("d",1)[1])
     
     #calculate tangent
@@ -88,8 +88,8 @@ def adjust(values = None):
     refraction = (-0.00452 * float(values['pressure'])) / (273 + convertToCelsius(values['temperature']))/tangent(values['observation'])
     
     #calculate altitude
-    observationX = values['observation'].split("d", 1)[0]
-    observationY = (values['observation'].split("d", 1)[1]) / 60
+    observationX = int(values['observation'].split("d", 1)[0])
+    observationY = float(values['observation'].split("d", 1)[1]) / 60
     calcObservation = observationX = observationY
     
     
