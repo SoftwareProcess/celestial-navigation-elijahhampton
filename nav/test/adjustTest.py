@@ -115,10 +115,15 @@ class adjustTest(unittest.TestCase):
             }
         
         dict = nav.adjust(preDict)
-        expected = dict['altitude']
-        actual = '29d59.9'
         
-        self.assertAlmostEqual(expected, actual, 2,)
+        expected = dict['altitude']
+        expectedX = int(expected.split("d", 1)[0])
+        expectedY = float(values['observation'].split("d", 1)[1]) / 60
+        calcExpected = expectedX + expectedY
+        
+        actual = 29.9983
+        
+        self.assertAlmostEqual(calcExpected, actual, 2,)
       
 
 
