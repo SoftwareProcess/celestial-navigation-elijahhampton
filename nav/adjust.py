@@ -77,8 +77,20 @@ def adjust(values = None):
     if (not('horizon' in values)):
         values['horizon'] = 'natural'
     
-    #perform adjustment  
-    
+    #perform adjustment
+    dip = 0
+    if (values['observation'] is 'natural'):
+        dip = (0.97 * sqrt(values['height']))/60
         
-    values['altitude'] = '1'
+    #calculate refraction
+    refraction = (-0.00452 * values['pressure']) / (273 + convertToCelsius(values['temperature']))/tangent(values['observation'])
+    
+    #calculate altitude
+    observationX = values['observation'].split("d", 1)[0]
+    observationY = (values['observation'].split("d", 1)[1]) / 60
+    calcObservation = observationX = observationY
+    
+    
+    altitude = calcObservation + dip + refraction
+    values['altitude'] = altitude
     return values
