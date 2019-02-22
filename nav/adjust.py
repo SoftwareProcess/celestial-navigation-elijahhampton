@@ -98,8 +98,6 @@ def adjust(values = None):
     postAltitudeX = splitAltitude[0]
     postAltitudeY = splitAltitude[1]
     
-    altitude = str(postAltitudeX)
-    altitude.append("d")
-    altitude.append(str(postAltitudeY))
+    altitude = str(postAltitudeX) + "d" + str(postAltitudeY)
     values['altitude'] = altitude
     return values
