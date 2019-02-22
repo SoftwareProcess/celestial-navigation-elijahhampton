@@ -95,8 +95,8 @@ def adjust(values = None):
     
     preAltitude = calcObservation + dip + refraction
     splitAltitude = modf(preAltitude)
-    postAltitudeX = splitAltitude[0]
-    postAltitudeY = splitAltitude[1]
+    postAltitudeX = splitAltitude[1]
+    postAltitudeY = splitAltitude[0]
     
     altitude = str(postAltitudeX) + "d" + str(postAltitudeY)
     values['altitude'] = altitude
