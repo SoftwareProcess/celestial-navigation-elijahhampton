@@ -1,5 +1,6 @@
 from math import sqrt
 from math import modf
+from math import round
 
 def convertToCelsius(degree):
     degree = int(degree) - 32
@@ -96,7 +97,8 @@ def adjust(values = None):
     preAltitude = calcObservation + dip + refraction
     splitAltitude = modf(preAltitude)
     postAltitudeX = int(splitAltitude[1])
-    postAltitudeY = splitAltitude[0] * 60
+    postAltitudeY = round((splitAltitude[0] * 60))
+    
     
     altitude = str(postAltitudeX) + "d" + str(postAltitudeY)
     values['altitude'] = altitude
