@@ -1,3 +1,9 @@
+""" 
+Created on Feb 19, 2019
+
+@author Elijah Hampton
+"""
+
 from math import sqrt
 from math import modf
 
@@ -31,8 +37,6 @@ def adjust(values = None):
         values['error'] = 'error with parm types'
         return values
     
-    print('atleast here')
-    
     #check boundary values
     for y in values:
         if (y is 'observation'):
@@ -45,26 +49,22 @@ def adjust(values = None):
             
             if (minutePortionOfAltitude < 0.0 or minutePortionOfAltitude > 60.0):
                 isBoundaryError = True
-                print('boundary error in observation')
         if (y is 'height'):
             heightValueAsInt = int(values['height'])
             if (heightValueAsInt < 0):
                 isBoundaryError = True
-                print('boundary error in height')
         if (y is 'temperature'):
             temperatureValueAsInt = int(values['temperature'])
             if (temperatureValueAsInt < -20 or temperatureValueAsInt > 120):
                 isBoundaryError = True
-                print('boundary error in temperature')
         if (y is 'pressure'):
             pressureValueAsInt = int(values['pressure'])
             if (pressureValueAsInt < 100 or pressureValueAsInt > 1100):
                 isBoundaryError = True
-                print('boundary error in pressure')
         if (y is 'horizon'):
-            if (values['horizon'] == 'natural' or values['horizon'] != 'artificial'):
-                print('boundary error in horizon')
-    
+            if (not(values['horizon'] == 'natural') or not(values['horizon'] != 'artificial')):
+                isBoundaryError = True
+                
     if (isBoundaryError == True):
         values['error'] = 'parm exceeds boundary limit'
         return values
@@ -91,7 +91,6 @@ def adjust(values = None):
         
     #calculate refraction
     refraction = (-0.00452 * float(values['pressure'])) / (273 + convertToCelsius(values['temperature']))/tangent(values['observation'])
-    
     
     preAltitude = calcObservation + dip + refraction
     splitAltitude = modf(preAltitude)

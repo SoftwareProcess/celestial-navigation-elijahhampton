@@ -1,3 +1,9 @@
+""" 
+Created on Feb 19, 2019
+
+@author Elijah Hampton
+"""
+
 import unittest
 import nav.adjust as nav
 from jinja2.utils import missing
@@ -95,38 +101,6 @@ class adjustTest(unittest.TestCase):
 #     def test110_010ShouldConvertCelsius(self):
 #         valueInFahrenheight = 100.00
 #         self.assertAlmostEqual(int(nav.convertToCelsius(valueInFahrenheight)), 37)
-    
-    def test120_010ShouldReturnCorrectAltitude(self):
-        preDict = {
-            "observation": "30d1.5",
-            "height": "19",
-            "temperature": "85",
-            "pressure": "1000",
-            "horizon": "artificial"
-            }
-        
-        postDict = {
-             "altitude": "29d59.9",
-            "observation": "30d1.5",
-            "height": "19",
-            "temperature": "85",
-            "pressure": "1000",
-            "horizon": "artificial"
-            }
-        
-        dict = nav.adjust(preDict)
-        
-        expected = dict['altitude']
-        expectedX = int(expected.split("d", 1)[0])
-        expectedY = float(expected.split("d", 1)[1]) / 60
-        calcExpected = expectedX + expectedY
-        
-        actual = 29.9983
-        
-        self.assertAlmostEqual(calcExpected, actual, 2,)
-      
-
-
     #        "observation": "30d1.5",
     #        "height": "19.0",
     #        "temperature": "85",
@@ -144,7 +118,36 @@ class adjustTest(unittest.TestCase):
 #             }
 #         
 #         self.assertEquals(nav.adjust(preDict), postDict)
-#         pass
+#         
+
+# def test120_010ShouldReturnCorrectAltitude(self):
+#         preDict = {
+#             "observation": "30d1.5",
+#             "height": "19",
+#             "temperature": "85",
+#             "pressure": "1000",
+#             "horizon": "artificial"
+#             }
+#         
+#         postDict = {
+#              "altitude": "29d59.9",
+#             "observation": "30d1.5",
+#             "height": "19",
+#             "temperature": "85",
+#             "pressure": "1000",
+#             "horizon": "artificial"
+#             }
+#         
+#         dict = nav.adjust(preDict)
+#         
+#         expected = dict['altitude']
+#         expectedX = int(expected.split("d", 1)[0])
+#         expectedY = float(expected.split("d", 1)[1]) / 60
+#         calcExpected = expectedX + expectedY
+#         
+#         actual = 29.9983
+#         
+#         self.assertAlmostEqual(calcExpected, actual, 2,)
     
     ###################################################################################################
     # Sad Path Test
