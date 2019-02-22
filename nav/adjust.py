@@ -1,4 +1,5 @@
 from math import sqrt
+from math import modf
 
 def convertToCelsius(degree):
     degree = int(degree) - 32
@@ -92,6 +93,13 @@ def adjust(values = None):
     refraction = (-0.00452 * float(values['pressure'])) / (273 + convertToCelsius(values['temperature']))/tangent(values['observation'])
     
     
-    altitude = calcObservation + dip + refraction
+    preAltitude = calcObservation + dip + refraction
+    splitAltitude = modf(preAltitude)
+    postAltitudeX = splitAltitude[0]
+    postAltitudeY = splitAltitude[1]
+    
+    altitude = str(postAltitudeX)
+    altitude.append("d")
+    altitude.append(str(postAltitudeY))
     values['altitude'] = altitude
     return values
