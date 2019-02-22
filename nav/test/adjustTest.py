@@ -118,7 +118,7 @@ class adjustTest(unittest.TestCase):
         
         expected = dict['altitude']
         expectedX = int(expected.split("d", 1)[0])
-        expectedY = float(values['observation'].split("d", 1)[1]) / 60
+        expectedY = float(expected.split("d", 1)[1]) / 60
         calcExpected = expectedX + expectedY
         
         actual = 29.9983
