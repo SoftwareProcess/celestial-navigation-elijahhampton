@@ -61,8 +61,7 @@ def adjust(values = None):
                 isBoundaryError = True
                 print('boundary error in pressure')
         if (y is 'horizon'):
-            if (not(values['horizon'] == 'natural') or not(values['horizon'] == 'artificial') or not(values['horizon'] == '')):
-                isBoundaryError = True
+            if (values['horizon'] == 'natural' or values['horizon'] != 'artificial'):
                 print('boundary error in horizon')
     
     if (isBoundaryError == True):
