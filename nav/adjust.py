@@ -84,13 +84,12 @@ def adjust(values = None):
     if (values['observation'] is 'natural'):
         dip = (0.97 * sqrt(values['height']))/60
         
-    #calculate refraction
-    refraction = (-0.00452 * float(values['pressure'])) / (273 + convertToCelsius(values['temperature']))/tangent(values['observation'])
-    
-    #calculate altitude
     observationX = int(values['observation'].split("d", 1)[0])
     observationY = float(values['observation'].split("d", 1)[1]) / 60
-    calcObservation = observationX = observationY
+    calcObservation = observationX + observationY
+        
+    #calculate refraction
+    refraction = (-0.00452 * float(values['pressure'])) / (273 + convertToCelsius(values['temperature']))/tangent(values['observation'])
     
     
     altitude = calcObservation + dip + refraction
