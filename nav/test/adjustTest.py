@@ -114,7 +114,7 @@ class adjustTest(unittest.TestCase):
             "horizon": "artificial"
             }
         
-        self.assertAlmostEqual(nav.adjust(preDict), postDict)
+        self.assertEqual(nav.adjust(preDict), postDict)
       
     #def test100_040ShouldReturnValuesWithCorrectAdjustment(self):
     #    preDict = {
