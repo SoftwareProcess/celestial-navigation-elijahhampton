@@ -3,7 +3,7 @@ import httplib
 from urllib import urlencode
 import json
 
-import nav.dispatch as nav
+import dispatch
 
 class DispatchTest(unittest.TestCase):
     
@@ -75,11 +75,11 @@ class DispatchTest(unittest.TestCase):
     #                        -- return {'error':'dictionary is missing'}
     # Happy path
 
-    def test100_010ShouldReturnUnchangedValuesWithOperationAdjust(self):
-        self.setParm('op','adjust')
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-        self.assertDictEqual(self.inputDictionary, resultDictionary)
+#     def test100_010ShouldReturnUnchangedValuesWithOperationAdjust(self):
+#         self.setParm('op','adjust')
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#         self.assertDictEqual(self.inputDictionary, resultDictionary)
 
     def test100_020ShouldReturnUnchangedValuesWithOperationPredict(self):
         self.setParm('op','predict')
@@ -87,17 +87,17 @@ class DispatchTest(unittest.TestCase):
         resultDictionary = self.string2dict(result)
         self.assertDictEqual(self.inputDictionary, resultDictionary)
  
-    def test100_030ShouldReturnUnchangedValuesWithOperationCorrect(self):
-        self.setParm('op','correct')
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-        self.assertDictEqual(self.inputDictionary, resultDictionary)
-        
-    def test100_040ShouldReturnUnchangedValuesWithOperationLocate(self):
-        self.setParm('op','locate')
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-        self.assertDictEqual(self.inputDictionary, resultDictionary)
+#     def test100_030ShouldReturnUnchangedValuesWithOperationCorrect(self):
+#         self.setParm('op','correct')
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#         self.assertDictEqual(self.inputDictionary, resultDictionary)
+#         
+#     def test100_040ShouldReturnUnchangedValuesWithOperationLocate(self):
+#         self.setParm('op','locate')
+#         result = self.microservice()
+#         resultDictionary = self.string2dict(result)
+#         self.assertDictEqual(self.inputDictionary, resultDictionary)
  
     # Sad path
     def test100_910_ShouldReturnValuesWithErrorKeyWhenNoOpSpecified(self):
