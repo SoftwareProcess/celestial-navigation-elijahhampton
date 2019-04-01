@@ -63,9 +63,12 @@ class corrrectTest(unittest.TestCase):
 #       Sad path analysis:      
 
 #Happy Path Test
+
+         
+#Sad Path Test
     def test200_010LatParmShouldBeGreaterThan90d0(self):
         self.setParm('op', 'correct')
-        self.setParm('lat', '90d0.0')
+        self.setParm('lat', '16d32.3')
         self.setParm('long', '95d41.6')
         self.setParm('altitude', '13d42.3')
         self.setParm('assumedLat', '53d38.4')
@@ -80,5 +83,21 @@ class corrrectTest(unittest.TestCase):
                           'error': 'invalid lat'}
          
         self.assertEqual(correct(self.inputDictionary),tempResultDict)
-         
-#Sad Path Test
+    
+    def test200_020ShouldReturnAppropriateErrorIfLatParmIsNotPresent(self):
+        self.setParm('op', 'correct')
+        self.setParm('lat', '16d32.3')
+        self.setParm('long', '95d41.6')
+        self.setParm('altitude', '13d42.3')
+        self.setParm('assumedLat', '53d38.4')
+        self.setParm('assumedLong', '350d35.3')
+        
+        tempResultDict = {'op': 'correct',
+                          'lat': '90d0.0',
+                          'long': '95d41.6',
+                          'altitude': '13d42.3',
+                          'assumedLat': '53d38.4',
+                          'assumedLong': '350d35.3',
+                          'error': 'lat parm not present'}
+        
+        self.asserrtEqual(correct(self.inputDictionary), tempResultDict);
