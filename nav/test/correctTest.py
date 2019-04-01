@@ -99,3 +99,19 @@ class corrrectTest(unittest.TestCase):
                           'error': 'lat parm not present in input dict.'}
         
         self.assertEqual(correct(self.inputDictionary), tempResultDict);
+        
+    def test200_010ShouldReturnAppropriateErrorIfLongParmMissing(self):
+        self.setParm('op', 'correct')
+        self.setParm('lat', '16d32.3')
+        self.setParm('altitude', '13d42.3')
+        self.setParm('assumedLat', '53d38.4')
+        self.setParm('assumedLong', '350d35.3')
+         
+        tempResultDict = {'op': 'correct',
+                          'lat': '16d32.3',
+                          'altitude': '13d42.3',
+                          'assumedLat': '53d38.4',
+                          'assumedLong': '350d35.3',
+                          'error': 'long parm not present in input dict.'}
+         
+        self.assertEqual(correct(self.inputDictionary),tempResultDict)
