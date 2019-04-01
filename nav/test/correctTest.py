@@ -77,8 +77,7 @@ class corrrectTest(unittest.TestCase):
                           'altitude': '13d42.3',
                           'assumedLat': '53d38.4',
                           'assumedLong': '350d35.3',
-                          'correctDistance': '104',
-                          'correctedAzimuth': '262d55.6'}
+                          'error': 'invalid lat'}
          
         self.assertEqual(correct(self.inputDictionary),tempResultDict)
          
