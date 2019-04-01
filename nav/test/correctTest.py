@@ -100,4 +100,4 @@ class corrrectTest(unittest.TestCase):
                           'assumedLong': '350d35.3',
                           'error': 'lat parm not present'}
         
-        self.asserrtEqual(correct(self.inputDictionary), tempResultDict);
+        self.assertEqual(correct(self.inputDictionary), tempResultDict);
