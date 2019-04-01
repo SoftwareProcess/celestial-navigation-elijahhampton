@@ -143,6 +143,6 @@ class corrrectTest(unittest.TestCase):
         self.setParm('assumedLong', '350d35.3')
          
         result = self.microservice()
-        resultDictionary = result.string2dict()
+        resultDictionary = result.string2dict(result)
         
         self.assertTrue(resultDictionary.has_key("error"), True)
