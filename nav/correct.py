@@ -20,7 +20,7 @@ def correct(values = None):
         values['error'] = 'invalid lat'
         return values
     
-    tempLongValue = int(values['long'])
+    tempLongValue = values['long']
     tempLongValueX = int(values['long']).split('d')[0]
     tempLongValueY = int(values['long']).split('d')[1]
     
