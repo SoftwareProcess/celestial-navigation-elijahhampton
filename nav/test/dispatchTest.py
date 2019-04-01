@@ -3,7 +3,7 @@ import httplib
 from urllib import urlencode
 import json
 
-import dispatch
+import nav.dispatch
 
 class DispatchTest(unittest.TestCase):
     

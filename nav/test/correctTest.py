@@ -133,3 +133,16 @@ class corrrectTest(unittest.TestCase):
                           'error': 'long parm outside correct boundary.'}
          
         self.assertEqual(correct(self.inputDictionary), tempResultDict)
+        
+    def test200_010ShouldReturnWithErrorKeyIfXOfAltitudeParmIsGT90OrLT0(self):
+        self.setParm('op', 'correct')
+        self.setParm('lat', '16d32.3')
+        self.setParm('long', '95d41.6')
+        self.setParm('altitude', '100d42.3')
+        self.setParm('assumedLat', '53d38.4')
+        self.setParm('assumedLong', '350d35.3')
+         
+        result = self.microservice()
+        resultDictionary = result.string2dict()
+        
+        self.assertTrue(resultDictionary.has_key("error"), True)
