@@ -5,10 +5,10 @@ Created on March 04, 2019
 """
 
 import unittest
-from predict import predict
-from predict import starTableLookup
-from predict import calculateLeapYears
-from jinja2.utils import missing
+from nav.predict import predict
+from nav.predict import starTableLookup
+from nav.predict import calculateLeapYears
+#from jinja2.utils import missing
 
 class predictTest(unittest.TestCase):
 

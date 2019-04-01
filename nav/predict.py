@@ -3,7 +3,7 @@ Created on March 04, 2019
 
 @author Elijah Hampton
 """
-from six import string_types
+#from six import string_types
 from datetime import datetime, timedelta
 import csv
 import math
@@ -150,12 +150,12 @@ def predict(values = None):
         return values
     
     #Check instances of variables
-    for x in values:
-        if x is 'body':
-            if (isinstance(values[x], string_types) == False):
-                isWrongType = True
-            elif (values[x] == ''):
-                isWrongType = True
+    #for x in values:
+     #   if x is 'body':
+      #      if (isinstance(values[x], string_types) == False):
+       #         isWrongType = True
+        #    elif (values[x] == ''):
+         #       isWrongType = True
     
     #Check to see if we encountered any values with wrong types
     if (isWrongType is True):
