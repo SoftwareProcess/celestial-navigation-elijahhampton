@@ -93,7 +93,7 @@ class corrrectTest(unittest.TestCase):
         self.setParm('assumedLong', '350d35.3')
         
         tempResultDict = {'op': 'correct',
-                          'lat': '90d0.0',
+                          'lat': '16d32.3',
                           'long': '95d41.6',
                           'altitude': '13d42.3',
                           'assumedLat': '53d38.4',
