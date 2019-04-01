@@ -7,4 +7,6 @@ Created on April 1, 2019
 def correct(values = None):
     if (values['lat'] == '90d0.0'):
         values['error'] = 'invalid lat'
+        return values
+    
     return values
