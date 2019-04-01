@@ -12,7 +12,7 @@ import unittest
 import httplib
 from urllib import urlencode
 import json
-import nav.correct as correct
+from nav.correct import correct
 #from jinja2.utils import missing
 
 
