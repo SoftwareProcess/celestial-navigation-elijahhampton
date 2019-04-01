@@ -119,14 +119,14 @@ class corrrectTest(unittest.TestCase):
     def test200_010ShouldReturnWithErrorKeyIfLongParmXIfLT0OrGT360(self):
         self.setParm('op', 'correct')
         self.setParm('lat', '16d32.3')
-        self.setParm('long', '95d41.6')
+        self.setParm('long', '370d41.6')
         self.setParm('altitude', '13d42.3')
         self.setParm('assumedLat', '53d38.4')
         self.setParm('assumedLong', '350d35.3')
          
         tempResultDict = {'op': 'correct',
                           'lat': '16d32.3',
-                          'long': '16d32.3',
+                          'long': '370d32.3',
                           'altitude': '13d42.3',
                           'assumedLat': '53d38.4',
                           'assumedLong': '350d35.3',
