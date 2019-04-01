@@ -22,7 +22,7 @@ def correct(values = None):
     
     tempLongValue = values['long']
     tempLongValueX = int(values['long'].split('d')[0])
-    tempLongValueY = int(values['long'].split('d')[1])
+    tempLongValueY = float(values['long'].split('d')[1])
     
     if (tempLongValueX < 0 or tempLongValueX > 360):
         values['error'] = 'long parm outside correct boundary.'
