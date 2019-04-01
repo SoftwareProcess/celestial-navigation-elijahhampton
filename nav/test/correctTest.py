@@ -98,6 +98,6 @@ class corrrectTest(unittest.TestCase):
                           'altitude': '13d42.3',
                           'assumedLat': '53d38.4',
                           'assumedLong': '350d35.3',
-                          'error': 'lat parm not present'}
+                          'error': 'lat parm not present in input dict'}
         
         self.assertEqual(correct(self.inputDictionary), tempResultDict);

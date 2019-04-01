@@ -12,7 +12,7 @@ def correct(values = None):
     
     #Check if lat key is present
     if not("lat" in values):
-        values["error"] = "lat parm not present in values"
+        values["error"] = "lat parm not present in input dict."
         return values
     
     return values
