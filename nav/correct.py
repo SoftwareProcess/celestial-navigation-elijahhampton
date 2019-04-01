@@ -20,4 +20,12 @@ def correct(values = None):
         values['error'] = 'invalid lat'
         return values
     
+    tempLongValue = values['long']
+    tempLongValueX = values['long'].split('d')[0]
+    tempLongValueY = values['long'].split('d')[1]
+    
+    if (tempLongValueX < 0 or tempLongValueX > 360):
+        values['error'] = 'long parm outside correct boundary.'
+        return values
+    
     return values
