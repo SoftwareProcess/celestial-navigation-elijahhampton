@@ -1,6 +1,6 @@
 import os
-from flask import Flask, request
 import nav.dispatch as nav
+from flask import Flask, request
 
 app = Flask(__name__)
 
