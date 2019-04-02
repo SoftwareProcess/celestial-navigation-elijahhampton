@@ -145,5 +145,4 @@ class corrrectTest(unittest.TestCase):
         result = self.microservice()
         resultDictionary = self.string2dict(result)
         print resultDictionary
-        
         self.assertTrue(resultDictionary.has_key("error"), True)
