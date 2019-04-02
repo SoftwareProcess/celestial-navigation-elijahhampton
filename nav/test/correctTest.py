@@ -13,7 +13,7 @@ import httplib
 from urllib import urlencode
 import json
 from nav.correct import correct
-#from jinja2.utils import missing
+from jinja2.utils import missing
 
 
 class corrrectTest(unittest.TestCase):
@@ -143,7 +143,6 @@ class corrrectTest(unittest.TestCase):
         self.setParm('assumedLong', '350d35.3')
          
         result = self.microservice()
-        print result
         resultDictionary = self.string2dict(result)
         print resultDictionary
-        self.assertTrue(resultDictionary.has_key("error"), True)
+        self.assertTrue(resultDictionary.has_key('error'), True)
