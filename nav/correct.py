@@ -28,4 +28,13 @@ def correct(values = None):
         values['error'] = 'long parm outside correct boundary.'
         return values
     
+    tempAltitudeValue = values['altitude']
+    tempAltitudeValueX = int(values['altitude'].split('d')[0])
+    tempAltitudeValueY = float(values['altitude'].split('d')[0])
+    
+    if (tempAltitudeValueX < 0 or tempAltitudeValueX > 360):
+        values['error'] = 'altitude parm outside correct boundary.'
+        return values
+    
+    
     return values
