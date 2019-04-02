@@ -29,8 +29,8 @@ def correct(values = None):
         return values
     
     tempAltitudeValue = values['altitude']
-    tempAltitudeValueX = int(values['altitude'].split('d')[0])
-    tempAltitudeValueY = float(values['altitude'].split('d')[1])
+    tempAltitudeValueX = int(tempAltitudeValue.split('d')[0])
+    tempAltitudeValueY = float(tempAltitudeValue.split('d')[1])
     
     if (tempAltitudeValueX < 0 or tempAltitudeValueX > 360):
         values['error'] = 'altitude parm outside correct boundary.'
