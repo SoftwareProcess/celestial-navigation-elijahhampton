@@ -1,5 +1,5 @@
 from math import sin, cos, asin, acos
-
+from __future__ import division
 """ 
 Created on April 1, 2019
 
@@ -139,7 +139,7 @@ def correct(values = None):
     #Determine compass direction in which to make the distance adjustment
     preCorrectedAzimuth =  str( radiansToDegrees( acos(
         (sin(int(values['lat'].split('d')[0])) + sin(float(values['lat'].split('d')[1]))) - (  (sin(int(values['assumedLat'].split('d')[0])) + sin(float(values['assumedLat'].split('d')[1]))) * intermmediateDistance)
-            / (  (cos(int(values['assumedLat'].split('d')[0])) + cos(float(values['assumedLat'].split('d')[1]))) * cos(correctedDistance))))) #Should be 82.9490446
+            // (  (cos(int(values['assumedLat'].split('d')[0])) + cos(float(values['assumedLat'].split('d')[1]))) * cos(correctedDistance))))) #Should be 82.9490446
     
     
     correctedAzimuthX = int(preCorrectedAzimuth.split('.')[0])
