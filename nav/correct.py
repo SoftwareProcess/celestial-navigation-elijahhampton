@@ -25,6 +25,11 @@ def correct(values = None):
         values["error"] = "assumedLat parm not present."
         return values;
     
+    #Check if assumed long key is present
+    if not("assumedLong" in values):
+        values['error'] = "assumedLong parm not present."
+        return values
+    
     #Check if lat is in appropriate bounds
     if (values['lat'] == '90d0.0'):
         values['error'] = 'invalid lat'
