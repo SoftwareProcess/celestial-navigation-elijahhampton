@@ -254,20 +254,20 @@ class corrrectTest(unittest.TestCase):
         
         self.assertEqual(correct(self.inputDictionary), tempResultDict)
         
-    def test200_010ShouldReturnWithErrorKeyIfYPortionOfLatLongAltitudeAssumedLatOrAssumedLongIsPositive(self):
+    def test200_010ShouldReturnWithErrorKeyIfYPortionOfLatLongAltitudeAssumedLatOrAssumedLongIsInCorrectBoundary(self):
         self.setParm('lat', '16d32.3')
         self.setParm('long', '95d41.6')
-        self.setParm('altitude', '-13d42.3')
+        self.setParm('altitude', '13d42.3')
         self.setParm('assumedLat', '53d38.4')
-        self.setParm('assumedLong', '350d35.3')
+        self.setParm('assumedLong', '350d70.3')
         self.setParm('op', 'correct')
          
         tempResultDict = {'op': 'correct',
                           'lat': '16d32.3',
                           'long': '95d41.6',
-                          'altitude': '-13d42.3',
+                          'altitude': '13d42.3',
                           'assumedLat': '53d38.4',
-                          'assumedLong': '350d35.3',
-                          'error': 'Found negative parm that should be positive.'}
+                          'assumedLong': '350d70.3',
+                          'error': 'Found Parm with y portion outside of correct boundary.'}
         
         self.assertEqual(correct(self.inputDictionary), tempResultDict)

@@ -73,14 +73,19 @@ def correct(values = None):
     try:
         tempValues = values
         for key in tempValues:
-            int(tempValues[key])
+            if (key == 'lat' or key == 'long' 
+                or key =='altitude' or key =='assumedLat' 
+                    or key == 'assumedLong'):
+                        int(tempValues[key])
     except ValueError:
         values['error'] = 'Found parm with wrong type (correct: integer).'
         return values
     
-    #Check if x portion of lat, long, altitude, assumedLat, and assumedLong are positive
+        #Check if y.y portion of lat, long, altitude, assumedLat, and assumedLong are positive
     for key in values:
-        if (values[key] < 0):
-            values['error'] = 'Found negative parm that should be positive.'
-    
+        if (key == 'lat' or key == 'long' 
+                or key =='altitude' or key =='assumedLat' 
+                    or key == 'assumedLong'):
+                        if (float(values[key]).split('d')[1] < 0 or float(values[key]).split('d')[1] > 59):
+                            values['error'] = 'Found Parm with y portion outside of correct boundary.'
     return values
