@@ -1,5 +1,4 @@
 from math import sin, cos, asin, acos
-from __future__ import division
 
 """ 
 Created on April 1, 2019
