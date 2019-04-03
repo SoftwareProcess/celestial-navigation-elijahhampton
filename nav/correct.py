@@ -118,9 +118,9 @@ def correct(values = None):
     localHourAngleY = float(values['long'].split('d')[1]) + float(values['assumedLong'].split('d')[1])
     
     #Calculate intermmediate distance
-    intermmediateDistance = ( ((sin(int(values['lat'].split('d')[0])) + sin(float(values['lat'].split('d')[1]))) * ((sin(int(values['assumedLat'].split('d')[0])) + sin(float(values['assumedLat'].split('d')[1]))) 
-                               + ((cos(int(values['lat'].split('d')[0])) + cos(float(values['lat'].split('d')[1]))) * ((cos(int(values['assumedLat'].split('d')[0])) + cos(float(values['assumedLat'].split('d')[1]))) 
-                                    * (cos(localhourAngleX) + cos(localHourAngleY) ))))))
+    intermmediateDistance = ( (sin(radians(int(values['lat'].split('d')[0])) + (float(values['lat'].split('d')[1]) / 60))) * ((sin(radians(int(values['assumedLat'].split('d')[0])) + (float(values['assumedLat'].split('d')[1] / 60))) 
+                               + ((cos(radians(int(values['lat'].split('d')[0])) + (float(values['lat'].split('d')[1]) / 60))) * ((cos(radians(int(values['assumedLat'].split('d')[0])) + (float(values['assumedLat'].split('d')[1]) / 60))) 
+                                    * (cos(radians(localhourAngleX + (localHourAngleY / 60))) ))))))
     
     #Calculate correctedAltitude
     preCorrectedAltitude = str(radiansToDegrees(asin(intermmediateDistance))) #Should have 15.41256
