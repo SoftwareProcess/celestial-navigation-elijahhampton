@@ -271,3 +271,21 @@ class corrrectTest(unittest.TestCase):
                           'error': 'Found Parm with y portion outside of correct boundary.'}
         
         self.assertEqual(correct(self.inputDictionary), tempResultDict)
+        
+    def test200_010ShouldReturnWithErrorKeyIfYPortionOfLatLongAltitudeAssumedLatOrAssumedLongIsAFloatingPointValue(self):
+        self.setParm('lat', '16d32.3')
+        self.setParm('long', '95d41.6')
+        self.setParm('altitude', '13d42.3')
+        self.setParm('assumedLat', '53d38.4')
+        self.setParm('assumedLong', '350d35.3a')
+        self.setParm('op', 'correct')
+         
+        tempResultDict = {'op': 'correct',
+                          'lat': '16d32.3',
+                          'long': '95d41.6',
+                          'altitude': '13d42.3',
+                          'assumedLat': '53d38.4',
+                          'assumedLong': '350d35.3a',
+                          'error': 'Found parm with y.y portion as incorrect type. (correct: float'}
+        
+        self.assertEqual(correct(self.inputDictionary), tempResultDict)

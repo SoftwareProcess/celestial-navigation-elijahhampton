@@ -81,7 +81,7 @@ def correct(values = None):
         values['error'] = 'Found parm with wrong type (correct: integer).'
         return values
     
-        #Check if y.y portion of lat, long, altitude, assumedLat, and assumedLong are positive
+    #Check if y.y portion of lat, long, altitude, assumedLat, and assumedLong are within correct bounds
     yBoundaryError = False
     for key in values:
         if (key == 'lat' or key == 'long' 
