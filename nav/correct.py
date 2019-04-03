@@ -76,7 +76,7 @@ def correct(values = None):
             if (key == 'lat' or key == 'long' 
                 or key =='altitude' or key =='assumedLat' 
                     or key == 'assumedLong'):
-                        int(tempValues[key])
+                        int(tempValues[key].split('d')[0])
     except ValueError:
         values['error'] = 'Found parm with wrong type (correct: integer).'
         return values
