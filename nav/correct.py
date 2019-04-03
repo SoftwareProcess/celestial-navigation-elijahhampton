@@ -149,9 +149,9 @@ def correct(values = None):
     correctedDistanceX = int(values['altitude'].split('d')[0]) - correctedAltitudeX
     correctedDistanceY = float(values['altitude'].split('d')[1]) - correctedAltitudeY
     correctedDistance = (correctedDistanceY / 60) + correctedDistanceX
-    print(correctedDistance)
+    print('run it', correctedDistance)
     correctedDistance = correctedDistance * 60
-    print(correctedDistance)
+    print('go', correctedDistance)
     #Round to nearest arc minute 1
     round(correctedDistance)
     
