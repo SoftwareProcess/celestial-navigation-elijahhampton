@@ -20,6 +20,11 @@ def correct(values = None):
         values["error"] = "altitude parm not present."
         return values;
     
+    #Check if assumed lat key is present
+    if not("assumedLat" in values):
+        values["error"] = "assumedLat parm not present."
+        return values;
+    
     #Check if lat is in appropriate bounds
     if (values['lat'] == '90d0.0'):
         values['error'] = 'invalid lat'
