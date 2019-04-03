@@ -137,10 +137,12 @@ def correct(values = None):
     round(correctedDistance)
     
     #Determine compass direction in which to make the distance adjustment
-    preCorrectedAzimuth =  str( radiansToDegrees( acos(
-        (sin(int(values['lat'].split('d')[0])) + sin(float(values['lat'].split('d')[1]))) - (  (sin(int(values['assumedLat'].split('d')[0])) + sin(float(values['assumedLat'].split('d')[1]))) * intermmediateDistance)
-            / (  (cos(int(values['assumedLat'].split('d')[0])) + cos(float(values['assumedLat'].split('d')[1]))) * cos(correctedDistance))))) #Should be 82.9490446
-    
+    try:
+        preCorrectedAzimuth =  str( radiansToDegrees( acos(
+            (sin(int(values['lat'].split('d')[0])) + sin(float(values['lat'].split('d')[1]))) - (  (sin(int(values['assumedLat'].split('d')[0])) + sin(float(values['assumedLat'].split('d')[1]))) * intermmediateDistance)
+                / (  (cos(int(values['assumedLat'].split('d')[0])) + cos(float(values['assumedLat'].split('d')[1]))) * cos(correctedDistance))))) #Should be 82.9490446
+    except Exception as ex:
+        print ex
     
     correctedAzimuthX = int(preCorrectedAzimuth.split('.')[0])
     correctedAzimuthY = float(preCorrectedAzimuth.split('.')[1]) * 60
