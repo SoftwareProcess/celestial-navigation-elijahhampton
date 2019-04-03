@@ -254,7 +254,7 @@ class corrrectTest(unittest.TestCase):
         
         self.assertEqual(correct(self.inputDictionary), tempResultDict)
         
-    def test200_010ShouldReturnWithErrorKeyIfXPortionOfLatLongAltitudeAssumedLatOrAssumedLongIsPositive(self):
+    def test200_010ShouldReturnWithErrorKeyIfYPortionOfLatLongAltitudeAssumedLatOrAssumedLongIsPositive(self):
         self.setParm('lat', '16d32.3')
         self.setParm('long', '95d41.6')
         self.setParm('altitude', '-13d42.3')
