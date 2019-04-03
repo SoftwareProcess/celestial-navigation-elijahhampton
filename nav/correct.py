@@ -81,6 +81,18 @@ def correct(values = None):
         values['error'] = 'Found parm with wrong type (correct: integer).'
         return values
     
+     #Check if x xportion of lat, long, altitude, assumedLat, and assumedLong are floats
+    try:
+        tempValues = values
+        for key in tempValues:
+            if (key == 'lat' or key == 'long' 
+                or key =='altitude' or key =='assumedLat' 
+                    or key == 'assumedLong'):
+                        float(tempValues[key].split('d')[1])
+    except ValueError:
+        values['error'] = 'Found parm with y.y portion as incorrect type. (correct: float)'
+        return values
+    
     #Check if y.y portion of lat, long, altitude, assumedLat, and assumedLong are within correct bounds
     yBoundaryError = False
     for key in values:
