@@ -36,6 +36,7 @@ def correct(values = None):
     
     if (tempAltitudeValueX < 0 or tempAltitudeValueX > 360):
         values['error'] = 'altitude parm outside correct boundary.'
+        print('check')
         return values
     
     
