@@ -118,10 +118,10 @@ def correct(values = None):
     localHourAngleY = float(values['long'].split('d')[1]) + float(values['assumedLong'].split('d')[1])
     
     #Calculate intermmediate distance
-    print(sin(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60)))
-    print(sin(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60)))
-    print(cos(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60)))
-    print(cos(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60)))
+    print(sin(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60))))
+    print(   sin(   radians(   int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60)   )   ))
+    print(cos(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60))))
+    print(cos(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60))))
     print(cos(radians(localhourAngleX + (localHourAngleY / 60))))   
     print(" ")
     print(" ") 
