@@ -120,7 +120,7 @@ def correct(values = None):
     #Calculate intermmediate distance
     intermmediateDistance = ( (sin(radians(int(values['lat'].split('d')[0])) + (float(values['lat'].split('d')[1]) / 60))) * ((sin(radians(int(values['assumedLat'].split('d')[0])) + (float(values['assumedLat'].split('d')[1]) / 60))) 
                                + ((cos(radians(int(values['lat'].split('d')[0])) + (float(values['lat'].split('d')[1]) / 60))) * ((cos(radians(int(values['assumedLat'].split('d')[0])) + (float(values['assumedLat'].split('d')[1]) / 60))) 
-                                    * (cos(radians(localhourAngleX + (localHourAngleY / 60))) ))))))
+                                    * (cos(radians(localhourAngleX + (localHourAngleY / 60))) )))))
     
     #Calculate correctedAltitude
     preCorrectedAltitude = str(radiansToDegrees(asin(intermmediateDistance))) #Should have 15.41256
