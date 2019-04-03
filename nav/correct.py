@@ -69,6 +69,13 @@ def correct(values = None):
         values['error'] = 'assumedLong parm outside correct boundary.'
         return values
     
-    
+    #Check if x portion of lat, long, altitude, assumedLat, and assumedLong are integers
+    try:
+        tempValues = values
+        for key in tempValues:
+            int(tempValues[key])
+    except ValueError:
+        values['error'] = 'Found parm with wrong type (correct: integer).'
+        return values
     
     return values
