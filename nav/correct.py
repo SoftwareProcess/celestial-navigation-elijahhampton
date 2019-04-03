@@ -65,7 +65,7 @@ def correct(values = None):
     tempAssumedLongY = float(values['assumedLong'].split('d')[1])
     
     #Check x value of assumedLong
-    if (tempAssumedLongX < -90 or tempAssumedLongX > 90):
+    if (tempAssumedLongX < 0 or tempAssumedLongX > 360):
         values['error'] = 'assumedLong parm outside correct boundary.'
         return values
     
