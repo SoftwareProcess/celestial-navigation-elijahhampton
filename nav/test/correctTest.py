@@ -249,7 +249,7 @@ class corrrectTest(unittest.TestCase):
                           'long': '95d41.6',
                           'altitude': '13d42.3',
                           'assumedLat': '53d38.4',
-                          'assumedLong': '350d355.3',
+                          'assumedLong': '350d35.3',
                           'error': 'Found parm with wrong type (correct: integer).'}
         
         self.assertEqual(correct(self.inputDictionary), tempResultDict)
