@@ -138,6 +138,9 @@ def correct(values = None):
     round(correctedDistance)
     
     #Determine compass direction in which to make the distance adjustment
+    print(sin(int(values['lat'].split('d')[0])) + sin(float(values['lat'].split('d')[1])))
+    print(sin(int(values['assumedLat'].split('d')[0])) + sin(float(values['assumedLat'].split('d')[1])))
+    print(intermmediateDistance)
     print(cos(int(values['assumedLat'].split('d')[0])) + cos(float(values['assumedLat'].split('d')[1])))
     print(cos(correctedDistance))
     
