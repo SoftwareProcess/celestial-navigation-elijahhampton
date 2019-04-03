@@ -1,8 +1,14 @@
+from math import sin, cos, asin, acos
+
 """ 
 Created on April 1, 2019
 
 @author Elijah Hampton
 """
+
+def radiansToDegrees(numInRadians):
+    numInDegrees = (numInRadians * 180) / 3.14
+    return numInDegrees
 
 def correct(values = None):
     #Check if lat key is present
@@ -105,5 +111,51 @@ def correct(values = None):
     if (yBoundaryError == True):
         values['error'] = 'Found Parm with y portion outside of correct boundary.'
         return values
+    
+    #Calculate local hour angle
+    localhourAngleX = int(values['long'].split('d')[0]) + int(values['assumedLong'].split('d')[0])
+    localHourAngleY = float(values['long'].split('d')[1]) + float(values['assumedLong'].split('d')[1])
+    
+    #Calculate intermmediate distance
+    intermmediateDistance = ( ((sin(int(values['lat']).split('d')[0]) + sin(float(values['lat']).split('d')[1])) * ((sin(int(values['assumedLat']).split('d')[0]) + sin(float(values['assumedLat']).split('d')[1])) 
+                               + ((cos(int(values['lat']).split('d')[0]) + cos(float(values['lat']).split('d')[1])) * ((cos(int(values['assumedLat']).split('d')[0]) + cos(float(values['assumedLat']).split('d')[1])) 
+                                    * (cos(localhourAngleX) + cos(localHourAngleY) ))))))
+    
+    #Calculate correctedAltitude
+    preCorrectedAltitude = str(radiansToDegrees(asin(intermmediateDistance))) #Should have 15.41256
+    correctedAltitudeX = int(preCorrectedAltitude.split('.')[0])
+    correctedAltitudeY = float(preCorrectedAltitude.split('.')[1]) * 60
+    
+    #Calculate distance in arc minutes and round to nearest 0.1 arc minute
+    #calculate
+    correctedDistanceX = int(values['altitude'].split('d')[0]) - correctedAltitudeX
+    correctedDistanceY = float(values['altitude'].split('d')[1]) - correctedAltitudeY
+    correctedDistance = (correctedDistanceY / 60) + correctedDistanceX
+    correctedDistance = correctedDistance * 60
+    
+    #Round to nearest arc minute 1
+    round(correctedDistance)
+    
+    #Determine compass direction in which to make the distance adjustment
+    preCorrectedAzimuth =  str( radiansToDegrees( acos(
+        (sin(int(values['lat']).split('d')[0]) + sin(float(values['lat']).split('d')[1])) - (  (sin(int(values['assumedLat']).split('d')[0]) + sin(float(values['assumedLat']).split('d')[1])) * intermmediateDistance)
+            / (  (cos(int(values['assumedLat']).split('d')[0]) + cos(float(values['assumedLat']).split('d')[1])) * cos(correctedDistance))))) #Should be 82.9490446
+    
+    
+    correctedAzimuthX = int(preCorrectedAzimuth.split('.')[0])
+    correctedAzimuthY = float(preCorrectedAzimuth.split('.')[1]) * 60
+    
+    
+    if (correctedDistance < 0):
+        correctedDistance = abs(correctedDistance)
+        correctedAzimuthX = (correctedAzimuthX + 180) % 360
+        
+    #Convert correctedAzimuth and correctedDistance to strings
+    correctedAzimuth = str(correctedAzimuthX) + 'd' + str(correctedAzimuthY)
+    correctedDistance = str(correctedDistance)
+    
+    #Add values to dictionary
+    values['correctedAzimuth'] = correctedAzimuth
+    values['correctedDistance'] = correctedDistance
     
     return values

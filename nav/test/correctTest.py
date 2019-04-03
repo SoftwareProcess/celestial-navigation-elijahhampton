@@ -75,10 +75,10 @@ class corrrectTest(unittest.TestCase):
                           'lat': '16d32.3',
                           'long': '95d41.6',
                           'altitude': '13d42.3',
-                          'assumedLat': '53d38.4',
+                          'assumedLat': '-53d38.4',
                           'assumedLong': '350d35.3',
-                          'correctedAzimuth': '104',
-                          'correctedDistance': '262d55.6'}
+                          'correctedAzimuth': '1488',
+                          'correctedDistance': '77d6.9'}
         
         self.assertEqual(correct(self.inputDictionary),tempResultDict)
          
