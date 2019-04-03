@@ -63,228 +63,246 @@ class corrrectTest(unittest.TestCase):
 #       Sad path analysis:      
 
 #Happy Path Test
+    def test200_000CorrectShouldReturnCorrectAzimuthandDistanceValues(self):
+        self.setParm('op', 'correct')
+        self.setParm('lat', '16d32.3')
+        self.setParm('long', '95d41.6')
+        self.setParm('altitude', '13d42.3')
+        self.setParm('assumedLat', '53d38.4')
+        self.setParm('assumedLong', '350d35.3')
+        
+        tempResultDict = {'op': 'correct',
+                          'lat': '16d32.3',
+                          'long': '95d41.6',
+                          'altitude': '13d42.3',
+                          'assumedLat': '53d38.4',
+                          'assumedLong': '350d35.3',
+                          'correctedAzimuth': '104',
+                          'correctedDistance': '262d55.6'}
+        
+        self.assertEqual(correct(self.inputDictionary),tempResultDict)
          
 #Sad Path Test
-    def test200_010LatParmShouldBeGreaterThan90d0(self):
-        self.setParm('op', 'correct')
-        self.setParm('lat', '90d0.0')
-        self.setParm('long', '95d41.6')
-        self.setParm('altitude', '13d42.3')
-        self.setParm('assumedLat', '53d38.4')
-        self.setParm('assumedLong', '350d35.3')
-         
-        tempResultDict = {'op': 'correct',
-                          'lat': '90d0.0',
-                          'long': '95d41.6',
-                          'altitude': '13d42.3',
-                          'assumedLat': '53d38.4',
-                          'assumedLong': '350d35.3',
-                          'error': 'invalid lat'}
-         
-        self.assertEqual(correct(self.inputDictionary),tempResultDict)
-    
-    def test200_020ShouldReturnAppropriateErrorIfLatParmIsNotPresent(self):
-        self.setParm('op', 'correct')
-        self.setParm('long', '95d41.6')
-        self.setParm('altitude', '13d42.3')
-        self.setParm('assumedLat', '53d38.4')
-        self.setParm('assumedLong', '350d35.3')
-        
-        tempResultDict = {'op': 'correct',
-                          'long': '95d41.6',
-                          'altitude': '13d42.3',
-                          'assumedLat': '53d38.4',
-                          'assumedLong': '350d35.3',
-                          'error': 'lat parm not present in input dict.'}
-        
-        self.assertEqual(correct(self.inputDictionary), tempResultDict);
-        
-    def test200_010ShouldReturnAppropriateErrorIfLongParmMissing(self):
-        self.setParm('op', 'correct')
-        self.setParm('lat', '16d32.3')
-        self.setParm('altitude', '13d42.3')
-        self.setParm('assumedLat', '53d38.4')
-        self.setParm('assumedLong', '350d35.3')
-         
-        tempResultDict = {'op': 'correct',
-                          'lat': '16d32.3',
-                          'altitude': '13d42.3',
-                          'assumedLat': '53d38.4',
-                          'assumedLong': '350d35.3',
-                          'error': 'long parm not present in input dict.'}
-         
-        self.assertEqual(correct(self.inputDictionary),tempResultDict)
-    
-    def test200_010ShouldReturnWithErrorKeyIfLongParmXIfLT0OrGT360(self):
-        self.setParm('op', 'correct')
-        self.setParm('lat', '16d32.3')
-        self.setParm('long', '370d41.6')
-        self.setParm('altitude', '13d42.3')
-        self.setParm('assumedLat', '53d38.4')
-        self.setParm('assumedLong', '350d35.3')
-         
-        tempResultDict = {'op': 'correct',
-                          'lat': '16d32.3',
-                          'long': '370d41.6',
-                          'altitude': '13d42.3',
-                          'assumedLat': '53d38.4',
-                          'assumedLong': '350d35.3',
-                          'error': 'long parm outside correct boundary.'}
-         
-        self.assertEqual(correct(self.inputDictionary), tempResultDict)
-        
-    def test200_010ShouldReturnWithErrorKeyIfXOfAltitudeParmIsGT90OrLT0(self):
-        self.setParm('lat', '16d32.3')
-        self.setParm('long', '95d41.6')
-        self.setParm('altitude', '400d42.3')
-        self.setParm('assumedLat', '53d38.4')
-        self.setParm('assumedLong', '350d35.3')
-        self.setParm('op', 'correct')
-         
-        tempResultDict = {'op': 'correct',
-                          'lat': '16d32.3',
-                          'long': '95d41.6',
-                          'altitude': '400d42.3',
-                          'assumedLat': '53d38.4',
-                          'assumedLong': '350d35.3',
-                          'error': 'altitude parm outside correct boundary.'}
-        
-        self.assertEqual(correct(self.inputDictionary), tempResultDict)
-        
-    def test200_010ShouldReturnWithErrorKeyIfAltitudeIsNotPresent(self):
-        self.setParm('lat', '16d32.3')
-        self.setParm('long', '95d41.6')
-        self.setParm('assumedLat', '53d38.4')
-        self.setParm('assumedLong', '350d35.3')
-        self.setParm('op', 'correct')
-         
-        tempResultDict = {'op': 'correct',
-                          'lat': '16d32.3',
-                          'long': '95d41.6',
-                          'assumedLat': '53d38.4',
-                          'assumedLong': '350d35.3',
-                          'error': 'altitude parm not present.'}
-        
-        self.assertEqual(correct(self.inputDictionary), tempResultDict)
-        
-    def test200_010ShouldReturnWithErrorKeyIfXOfAssumedLatIsLTNegNinetyOrGTNinety(self):
-        self.setParm('lat', '16d32.3')
-        self.setParm('long', '95d41.6')
-        self.setParm('altitude', '13d42.3')
-        self.setParm('assumedLat', '-200d38.4')
-        self.setParm('assumedLong', '350d35.3')
-        self.setParm('op', 'correct')
-         
-        tempResultDict = {'op': 'correct',
-                          'lat': '16d32.3',
-                          'long': '95d41.6',
-                          'altitude': '13d42.3',
-                          'assumedLat': '-200d38.4',
-                          'assumedLong': '350d35.3',
-                          'error': 'assumedLat parm outside correct boundary.'}
-        
-        self.assertEqual(correct(self.inputDictionary), tempResultDict)
-        
-    def test200_010ShouldReturnWithErrorKeyIfAssumedLatParmNotPresent(self):
-        self.setParm('lat', '16d32.3')
-        self.setParm('long', '95d41.6')
-        self.setParm('altitude', '13d42.3')
-        self.setParm('assumedLong', '350d35.3')
-        self.setParm('op', 'correct')
-         
-        tempResultDict = {'op': 'correct',
-                          'lat': '16d32.3',
-                          'long': '95d41.6',
-                          'altitude': '13d42.3',
-                          'assumedLong': '350d35.3',
-                          'error': 'assumedLat parm not present.'}
-        
-        self.assertEqual(correct(self.inputDictionary), tempResultDict)
-        
-    def test200_010ShouldReturnWithErrorKeyIfXOfAssumedLongParmIsLTZeroOrGT360(self):
-        self.setParm('lat', '16d32.3')
-        self.setParm('long', '95d41.6')
-        self.setParm('altitude', '13d42.3')
-        self.setParm('assumedLat', '53d38.4')
-        self.setParm('assumedLong', '500d35.3')
-        self.setParm('op', 'correct')
-         
-        tempResultDict = {'op': 'correct',
-                          'lat': '16d32.3',
-                          'long': '95d41.6',
-                          'altitude': '13d42.3',
-                          'assumedLat': '53d38.4',
-                          'assumedLong': '500d35.3',
-                          'error': 'assumedLong parm outside correct boundary.'}
-        
-        self.assertEqual(correct(self.inputDictionary), tempResultDict)
-        
-    def test200_010ShouldReturnWithErrorKeyIfAssumedLongParmNotPresent(self):
-        self.setParm('lat', '16d32.3')
-        self.setParm('long', '95d41.6')
-        self.setParm('altitude', '13d42.3')
-        self.setParm('assumedLat', '53d38.4')
-        self.setParm('op', 'correct')
-         
-        tempResultDict = {'op': 'correct',
-                          'lat': '16d32.3',
-                          'long': '95d41.6',
-                          'altitude': '13d42.3',
-                          'assumedLat': '53d38.4',
-                          'error': 'assumedLong parm not present.'}
-        
-        self.assertEqual(correct(self.inputDictionary), tempResultDict)
-        
-    def test200_010ShouldReturnWithErrorKeyIfXPortionOfLatLongAltitudeAssumedLatOrAssumedLongAreNonIntegers(self):
-        self.setParm('lat', '16ad32.3')
-        self.setParm('long', '95d41.6')
-        self.setParm('altitude', '13d42.3')
-        self.setParm('assumedLat', '53d38.4')
-        self.setParm('assumedLong', '350d35.3')
-        self.setParm('op', 'correct')
-         
-        tempResultDict = {'op': 'correct',
-                          'lat': '16ad32.3',
-                          'long': '95d41.6',
-                          'altitude': '13d42.3',
-                          'assumedLat': '53d38.4',
-                          'assumedLong': '350d35.3',
-                          'error': 'Found parm with wrong type (correct: integer).'}
-        
-        self.assertEqual(correct(self.inputDictionary), tempResultDict)
-        
-    def test200_010ShouldReturnWithErrorKeyIfYPortionOfLatLongAltitudeAssumedLatOrAssumedLongIsInCorrectBoundary(self):
-        self.setParm('lat', '16d32.3')
-        self.setParm('long', '95d41.6')
-        self.setParm('altitude', '13d42.3')
-        self.setParm('assumedLat', '53d38.4')
-        self.setParm('assumedLong', '350d70.3')
-        self.setParm('op', 'correct')
-         
-        tempResultDict = {'op': 'correct',
-                          'lat': '16d32.3',
-                          'long': '95d41.6',
-                          'altitude': '13d42.3',
-                          'assumedLat': '53d38.4',
-                          'assumedLong': '350d70.3',
-                          'error': 'Found Parm with y portion outside of correct boundary.'}
-        
-        self.assertEqual(correct(self.inputDictionary), tempResultDict)
-        
-    def test200_010ShouldReturnWithErrorKeyIfYPortionOfLatLongAltitudeAssumedLatOrAssumedLongIsAFloatingPointValue(self):
-        self.setParm('lat', '16d32.3')
-        self.setParm('long', '95d41.6')
-        self.setParm('altitude', '13d42.3')
-        self.setParm('assumedLat', '53d38.4')
-        self.setParm('assumedLong', '350d35.3a')
-        self.setParm('op', 'correct')
-         
-        tempResultDict = {'op': 'correct',
-                          'lat': '16d32.3',
-                          'long': '95d41.6',
-                          'altitude': '13d42.3',
-                          'assumedLat': '53d38.4',
-                          'assumedLong': '350d35.3a',
-                          'error': 'Found parm with y.y portion as incorrect type. (correct: float)'}
-        
-        self.assertEqual(correct(self.inputDictionary), tempResultDict)
+#     def test200_010LatParmShouldBeGreaterThan90d0(self):
+#         self.setParm('op', 'correct')
+#         self.setParm('lat', '16d0.0')
+#         self.setParm('long', '95d41.6')
+#         self.setParm('altitude', '13d42.3')
+#         self.setParm('assumedLat', '53d38.4')
+#         self.setParm('assumedLong', '350d35.3')
+#          
+#         tempResultDict = {'op': 'correct',
+#                           'lat': '90d0.0',
+#                           'long': '95d41.6',
+#                           'altitude': '13d42.3',
+#                           'assumedLat': '53d38.4',
+#                           'assumedLong': '350d35.3',
+#                           'error': 'invalid lat'}
+#          
+#         self.assertEqual(correct(self.inputDictionary),tempResultDict)
+#     
+#     def test200_020ShouldReturnAppropriateErrorIfLatParmIsNotPresent(self):
+#         self.setParm('op', 'correct')
+#         self.setParm('long', '95d41.6')
+#         self.setParm('altitude', '13d42.3')
+#         self.setParm('assumedLat', '53d38.4')
+#         self.setParm('assumedLong', '350d35.3')
+#         
+#         tempResultDict = {'op': 'correct',
+#                           'long': '95d41.6',
+#                           'altitude': '13d42.3',
+#                           'assumedLat': '53d38.4',
+#                           'assumedLong': '350d35.3',
+#                           'error': 'lat parm not present in input dict.'}
+#         
+#         self.assertEqual(correct(self.inputDictionary), tempResultDict);
+#         
+#     def test200_010ShouldReturnAppropriateErrorIfLongParmMissing(self):
+#         self.setParm('op', 'correct')
+#         self.setParm('lat', '16d32.3')
+#         self.setParm('altitude', '13d42.3')
+#         self.setParm('assumedLat', '53d38.4')
+#         self.setParm('assumedLong', '350d35.3')
+#          
+#         tempResultDict = {'op': 'correct',
+#                           'lat': '16d32.3',
+#                           'altitude': '13d42.3',
+#                           'assumedLat': '53d38.4',
+#                           'assumedLong': '350d35.3',
+#                           'error': 'long parm not present in input dict.'}
+#          
+#         self.assertEqual(correct(self.inputDictionary),tempResultDict)
+#     
+#     def test200_010ShouldReturnWithErrorKeyIfLongParmXIfLT0OrGT360(self):
+#         self.setParm('op', 'correct')
+#         self.setParm('lat', '16d32.3')
+#         self.setParm('long', '370d41.6')
+#         self.setParm('altitude', '13d42.3')
+#         self.setParm('assumedLat', '53d38.4')
+#         self.setParm('assumedLong', '350d35.3')
+#          
+#         tempResultDict = {'op': 'correct',
+#                           'lat': '16d32.3',
+#                           'long': '370d41.6',
+#                           'altitude': '13d42.3',
+#                           'assumedLat': '53d38.4',
+#                           'assumedLong': '350d35.3',
+#                           'error': 'long parm outside correct boundary.'}
+#          
+#         self.assertEqual(correct(self.inputDictionary), tempResultDict)
+#         
+#     def test200_010ShouldReturnWithErrorKeyIfXOfAltitudeParmIsGT90OrLT0(self):
+#         self.setParm('lat', '16d32.3')
+#         self.setParm('long', '95d41.6')
+#         self.setParm('altitude', '400d42.3')
+#         self.setParm('assumedLat', '53d38.4')
+#         self.setParm('assumedLong', '350d35.3')
+#         self.setParm('op', 'correct')
+#          
+#         tempResultDict = {'op': 'correct',
+#                           'lat': '16d32.3',
+#                           'long': '95d41.6',
+#                           'altitude': '400d42.3',
+#                           'assumedLat': '53d38.4',
+#                           'assumedLong': '350d35.3',
+#                           'error': 'altitude parm outside correct boundary.'}
+#         
+#         self.assertEqual(correct(self.inputDictionary), tempResultDict)
+#         
+#     def test200_010ShouldReturnWithErrorKeyIfAltitudeIsNotPresent(self):
+#         self.setParm('lat', '16d32.3')
+#         self.setParm('long', '95d41.6')
+#         self.setParm('assumedLat', '53d38.4')
+#         self.setParm('assumedLong', '350d35.3')
+#         self.setParm('op', 'correct')
+#          
+#         tempResultDict = {'op': 'correct',
+#                           'lat': '16d32.3',
+#                           'long': '95d41.6',
+#                           'assumedLat': '53d38.4',
+#                           'assumedLong': '350d35.3',
+#                           'error': 'altitude parm not present.'}
+#         
+#         self.assertEqual(correct(self.inputDictionary), tempResultDict)
+#         
+#     def test200_010ShouldReturnWithErrorKeyIfXOfAssumedLatIsLTNegNinetyOrGTNinety(self):
+#         self.setParm('lat', '16d32.3')
+#         self.setParm('long', '95d41.6')
+#         self.setParm('altitude', '13d42.3')
+#         self.setParm('assumedLat', '-200d38.4')
+#         self.setParm('assumedLong', '350d35.3')
+#         self.setParm('op', 'correct')
+#          
+#         tempResultDict = {'op': 'correct',
+#                           'lat': '16d32.3',
+#                           'long': '95d41.6',
+#                           'altitude': '13d42.3',
+#                           'assumedLat': '-200d38.4',
+#                           'assumedLong': '350d35.3',
+#                           'error': 'assumedLat parm outside correct boundary.'}
+#         
+#         self.assertEqual(correct(self.inputDictionary), tempResultDict)
+#         
+#     def test200_010ShouldReturnWithErrorKeyIfAssumedLatParmNotPresent(self):
+#         self.setParm('lat', '16d32.3')
+#         self.setParm('long', '95d41.6')
+#         self.setParm('altitude', '13d42.3')
+#         self.setParm('assumedLong', '350d35.3')
+#         self.setParm('op', 'correct')
+#          
+#         tempResultDict = {'op': 'correct',
+#                           'lat': '16d32.3',
+#                           'long': '95d41.6',
+#                           'altitude': '13d42.3',
+#                           'assumedLong': '350d35.3',
+#                           'error': 'assumedLat parm not present.'}
+#         
+#         self.assertEqual(correct(self.inputDictionary), tempResultDict)
+#         
+#     def test200_010ShouldReturnWithErrorKeyIfXOfAssumedLongParmIsLTZeroOrGT360(self):
+#         self.setParm('lat', '16d32.3')
+#         self.setParm('long', '95d41.6')
+#         self.setParm('altitude', '13d42.3')
+#         self.setParm('assumedLat', '53d38.4')
+#         self.setParm('assumedLong', '500d35.3')
+#         self.setParm('op', 'correct')
+#          
+#         tempResultDict = {'op': 'correct',
+#                           'lat': '16d32.3',
+#                           'long': '95d41.6',
+#                           'altitude': '13d42.3',
+#                           'assumedLat': '53d38.4',
+#                           'assumedLong': '500d35.3',
+#                           'error': 'assumedLong parm outside correct boundary.'}
+#         
+#         self.assertEqual(correct(self.inputDictionary), tempResultDict)
+#         
+#     def test200_010ShouldReturnWithErrorKeyIfAssumedLongParmNotPresent(self):
+#         self.setParm('lat', '16d32.3')
+#         self.setParm('long', '95d41.6')
+#         self.setParm('altitude', '13d42.3')
+#         self.setParm('assumedLat', '53d38.4')
+#         self.setParm('op', 'correct')
+#          
+#         tempResultDict = {'op': 'correct',
+#                           'lat': '16d32.3',
+#                           'long': '95d41.6',
+#                           'altitude': '13d42.3',
+#                           'assumedLat': '53d38.4',
+#                           'error': 'assumedLong parm not present.'}
+#         
+#         self.assertEqual(correct(self.inputDictionary), tempResultDict)
+#         
+#     def test200_010ShouldReturnWithErrorKeyIfXPortionOfLatLongAltitudeAssumedLatOrAssumedLongAreNonIntegers(self):
+#         self.setParm('lat', '16ad32.3')
+#         self.setParm('long', '95d41.6')
+#         self.setParm('altitude', '13d42.3')
+#         self.setParm('assumedLat', '53d38.4')
+#         self.setParm('assumedLong', '350d35.3')
+#         self.setParm('op', 'correct')
+#          
+#         tempResultDict = {'op': 'correct',
+#                           'lat': '16ad32.3',
+#                           'long': '95d41.6',
+#                           'altitude': '13d42.3',
+#                           'assumedLat': '53d38.4',
+#                           'assumedLong': '350d35.3',
+#                           'error': 'Found parm with wrong type (correct: integer).'}
+#         
+#         self.assertEqual(correct(self.inputDictionary), tempResultDict)
+#         
+#     def test200_010ShouldReturnWithErrorKeyIfYPortionOfLatLongAltitudeAssumedLatOrAssumedLongIsInCorrectBoundary(self):
+#         self.setParm('lat', '16d32.3')
+#         self.setParm('long', '95d41.6')
+#         self.setParm('altitude', '13d42.3')
+#         self.setParm('assumedLat', '53d38.4')
+#         self.setParm('assumedLong', '350d70.3')
+#         self.setParm('op', 'correct')
+#          
+#         tempResultDict = {'op': 'correct',
+#                           'lat': '16d32.3',
+#                           'long': '95d41.6',
+#                           'altitude': '13d42.3',
+#                           'assumedLat': '53d38.4',
+#                           'assumedLong': '350d70.3',
+#                           'error': 'Found Parm with y portion outside of correct boundary.'}
+#         
+#         self.assertEqual(correct(self.inputDictionary), tempResultDict)
+#         
+#     def test200_010ShouldReturnWithErrorKeyIfYPortionOfLatLongAltitudeAssumedLatOrAssumedLongIsAFloatingPointValue(self):
+#         self.setParm('lat', '16d32.3')
+#         self.setParm('long', '95d41.6')
+#         self.setParm('altitude', '13d42.3')
+#         self.setParm('assumedLat', '53d38.4')
+#         self.setParm('assumedLong', '350d35.3a')
+#         self.setParm('op', 'correct')
+#          
+#         tempResultDict = {'op': 'correct',
+#                           'lat': '16d32.3',
+#                           'long': '95d41.6',
+#                           'altitude': '13d42.3',
+#                           'assumedLat': '53d38.4',
+#                           'assumedLong': '350d35.3a',
+#                           'error': 'Found parm with y.y portion as incorrect type. (correct: float)'}
+#         
+#         self.assertEqual(correct(self.inputDictionary), tempResultDict)
