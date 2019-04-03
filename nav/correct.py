@@ -41,6 +41,12 @@ def correct(values = None):
         values['error'] = 'altitude parm outside correct boundary.'
         return values
     
+    tempAssumedLatX = int(values['assumedLat'].split('d')[0])
+    tempAssumedLatY = float(values['assumedLat'].split('d')[1])
+    
+    if (tempAssumedLatX < -90 or tempAssumedLatX > 90):
+        values['error'] = 'assumed lat parm outside correct boundary.
+        return values
     
     
     return values
