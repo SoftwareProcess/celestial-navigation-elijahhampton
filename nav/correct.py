@@ -45,7 +45,7 @@ def correct(values = None):
     tempAssumedLatY = float(values['assumedLat'].split('d')[1])
     
     if (tempAssumedLatX < -90 or tempAssumedLatX > 90):
-        values['error'] = 'assumed lat parm outside correct boundary.'
+        values['error'] = 'assumedLat parm outside correct boundary.'
         return values
     
     
