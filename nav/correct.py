@@ -139,10 +139,10 @@ def correct(values = None):
     
     #Determine compass direction in which to make the distance adjustment
     print(   sin(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60))    )    )
-    print(sin(radians(int(values['assumedLat'].split('d')[0])) + (float(values['assumedLat'].split('d')[1]) / 60))))
+    print(sin(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60))))
     print(intermmediateDistance)
-    print(cos(int(values['assumedLat'].split('d')[0])) + cos(float(values['assumedLat'].split('d')[1])))
-    print(cos(correctedDistance))
+    print(cos(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60))))
+    print(cos(radians(correctedDistance)))
     
     
     preCorrectedAzimuth =  str( radiansToDegrees( acos(
