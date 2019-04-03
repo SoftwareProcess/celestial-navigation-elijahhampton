@@ -118,17 +118,13 @@ def correct(values = None):
     localHourAngleY = float(values['long'].split('d')[1]) + float(values['assumedLong'].split('d')[1])
     
     #Calculate intermmediate distance
-    print(sin(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60))))
-    print(   sin(   radians(   int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60)   )   ))
-    print(cos(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60))))
-    print(cos(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60))))
-    print(cos(radians(localhourAngleX + (localHourAngleY / 60))))   
-    print(" ")
-    print(" ") 
+    intermmediateDistance = (
+        (sin(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60))) + sin(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60))))
+        + ( cos(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60))) * cos(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60))) * 
+        cos(radians(localhourAngleX + (localHourAngleY / 60))) )  )
     
-    intermmediateDistance = ( (sin(radians(int(values['lat'].split('d')[0])) + (float(values['lat'].split('d')[1]) / 60))) * ((sin(radians(int(values['assumedLat'].split('d')[0])) + (float(values['assumedLat'].split('d')[1]) / 60))) 
-                               + ((cos(radians(int(values['lat'].split('d')[0])) + (float(values['lat'].split('d')[1]) / 60))) * ((cos(radians(int(values['assumedLat'].split('d')[0])) + (float(values['assumedLat'].split('d')[1]) / 60))) 
-                                    * (cos(radians(localhourAngleX + (localHourAngleY / 60))) )))))
+    print(intermmediateDistance)
+    
     
     #Calculate correctedAltitude
     preCorrectedAltitude = str(radiansToDegrees(asin(intermmediateDistance))) #Should have 15.41256
@@ -153,9 +149,20 @@ def correct(values = None):
     print(cos(radians(correctedDistance)))
     
     
-    preCorrectedAzimuth =  str( radiansToDegrees( acos(
-        (sin(int(values['lat'].split('d')[0])) + sin(float(values['lat'].split('d')[1]))) - (  (sin(int(values['assumedLat'].split('d')[0])) + sin(float(values['assumedLat'].split('d')[1]))) * intermmediateDistance)
-            // (  (cos(int(values['assumedLat'].split('d')[0])) + cos(float(values['assumedLat'].split('d')[1]))) * cos(correctedDistance))))) #Should be 82.9490446
+    preCorrectedAzimuth =  str( 
+        
+        radiansToDegrees( 
+            
+            acos( 
+                (sin(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60)))
+                    - (sin(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60))) * intermmediateDistance))
+                        / ( cos(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60))) * cos(radians(correctedDistance)) )
+                
+                
+                
+                
+                
+                ))) #Should be 82.9490446
     
     
     correctedAzimuthX = int(preCorrectedAzimuth.split('.')[0])
