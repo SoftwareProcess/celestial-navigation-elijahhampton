@@ -82,10 +82,16 @@ def correct(values = None):
         return values
     
         #Check if y.y portion of lat, long, altitude, assumedLat, and assumedLong are positive
+    yBoundaryError = False
     for key in values:
         if (key == 'lat' or key == 'long' 
                 or key =='altitude' or key =='assumedLat' 
                     or key == 'assumedLong'):
                         if (float(values[key].split('d')[1]) < 0 or float(values[key].split('d')[1]) > 59):
-                            values['error'] = 'Found Parm with y portion outside of correct boundary.'
+                            yBoundaryError = True
+                                
+    if (yBoundaryError == True):
+        values['error'] = 'Found Parm with y portion outside of correct boundary.'
+        return values
+    
     return values
