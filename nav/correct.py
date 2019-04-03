@@ -184,11 +184,17 @@ def correct(values = None):
     
     if (correctedDistance < 0):
         correctedDistance = abs(correctedDistance)
-        correctedAzimuthX = (correctedAzimuthX + 180) % 360
-        
+        correctedAzimuthX = int(round((correctedAzimuthX + 180) % 360))
+    
+    
     #Convert correctedAzimuth and correctedDistance to strings
     correctedAzimuth = str(correctedAzimuthX) + 'd' + str(correctedAzimuthY)
     correctedDistance = str(correctedDistance)
+    
+    print(" uhh ")
+    print(correctedAzimuth)
+    print(correctedDistance)
+    print( " uhh ")
     
     #Add values to dictionary
     values['correctedAzimuth'] = correctedAzimuth
