@@ -1,5 +1,5 @@
 from __future__ import division
-from math import sin, cos, asin, acos
+from math import sin, cos, asin, acos, radians
 
 """ 
 Created on April 1, 2019
@@ -138,7 +138,7 @@ def correct(values = None):
     round(correctedDistance)
     
     #Determine compass direction in which to make the distance adjustment
-    print(   sin(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60)    )    )
+    print(   sin(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60))    )    )
     print(sin(int(values['assumedLat'].split('d')[0])) + sin(float(values['assumedLat'].split('d')[1])))
     print(intermmediateDistance)
     print(cos(int(values['assumedLat'].split('d')[0])) + cos(float(values['assumedLat'].split('d')[1])))
