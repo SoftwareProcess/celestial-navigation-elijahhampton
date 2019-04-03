@@ -286,6 +286,6 @@ class corrrectTest(unittest.TestCase):
                           'altitude': '13d42.3',
                           'assumedLat': '53d38.4',
                           'assumedLong': '350d35.3a',
-                          'error': 'Found parm with y.y portion as incorrect type. (correct: float'}
+                          'error': 'Found parm with y.y portion as incorrect type. (correct: float)'}
         
         self.assertEqual(correct(self.inputDictionary), tempResultDict)
