@@ -235,3 +235,21 @@ class corrrectTest(unittest.TestCase):
                           'error': 'assumedLong parm not present.'}
         
         self.assertEqual(correct(self.inputDictionary), tempResultDict)
+        
+    def test200_010ShouldReturnWithErrorKeyIfXPortionOfLatLongAltitudeAssumedLatOrAssumedLongAreNonIntegers(self):
+        self.setParm('lat', '16ad32.3')
+        self.setParm('long', '95d41.6')
+        self.setParm('altitude', '13d42.3')
+        self.setParm('assumedLat', '53d38.4')
+        self.setParm('assumedLong', '350d35.3')
+        self.setParm('op', 'correct')
+         
+        tempResultDict = {'op': 'correct',
+                          'lat': '16ad32.3',
+                          'long': '95d41.6',
+                          'altitude': '13d42.3',
+                          'assumedLat': '53d38.4',
+                          'assumedLong': '350d355.3',
+                          'error': 'Found parm with wrong type (correct: integer).'}
+        
+        self.assertEqual(correct(self.inputDictionary), tempResultDict)
