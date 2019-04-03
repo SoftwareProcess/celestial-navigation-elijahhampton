@@ -15,6 +15,11 @@ def correct(values = None):
         values["error"] = "long parm not present in input dict."
         return values
     
+    #Check if altitude key is present
+    if not("altitude" in values):
+        values["error"] = "altitude parm not present."
+        return values;
+    
     #Check if lat is in appropriate bounds
     if (values['lat'] == '90d0.0'):
         values['error'] = 'invalid lat'
