@@ -78,4 +78,9 @@ def correct(values = None):
         values['error'] = 'Found parm with wrong type (correct: integer).'
         return values
     
+    #Check if x portion of lat, long, altitude, assumedLat, and assumedLong are positive
+    for key in values:
+        if (values[key] < 0):
+            values['error'] = 'Found negative parm that should be positive.'
+    
     return values
