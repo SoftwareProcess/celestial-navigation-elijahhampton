@@ -34,6 +34,7 @@ def correct(values = None):
     tempLongValueX = int(values['long'].split('d')[0])
     tempLongValueY = float(values['long'].split('d')[1])
     
+    #Check x value of long
     if (tempLongValueX < 0 or tempLongValueX > 360):
         values['error'] = 'long parm outside correct boundary.'
         return values
@@ -42,6 +43,7 @@ def correct(values = None):
     tempAltitudeValueX = int(tempAltitudeValue.split('d')[0])
     tempAltitudeValueY = float(tempAltitudeValue.split('d')[1])
     
+    #Check X value of altitude
     if (tempAltitudeValueX < 0 or tempAltitudeValueX > 90):
         values['error'] = 'altitude parm outside correct boundary.'
         return values
@@ -49,9 +51,11 @@ def correct(values = None):
     tempAssumedLatX = int(values['assumedLat'].split('d')[0])
     tempAssumedLatY = float(values['assumedLat'].split('d')[1])
     
+    #Check x value of assumedLat
     if (tempAssumedLatX < -90 or tempAssumedLatX > 90):
         values['error'] = 'assumedLat parm outside correct boundary.'
         return values
+    
     
     
     return values

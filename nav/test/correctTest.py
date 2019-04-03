@@ -197,7 +197,25 @@ class corrrectTest(unittest.TestCase):
                           'lat': '16d32.3',
                           'long': '95d41.6',
                           'altitude': '13d42.3',
-                          'assumedLong': '350d35.3',
+                          'assumedLong': '500d35.3',
                           'error': 'assumedLat parm not present.'}
+        
+        self.assertEqual(correct(self.inputDictionary), tempResultDict)
+        
+    def test200_010ShouldReturnWithErrorKeyIfXOfAssumedLongParmIsLTZeroOrGT360(self):
+        self.setParm('lat', '16d32.3')
+        self.setParm('long', '95d41.6')
+        self.setParm('altitude', '13d42.3')
+        self.setParm('assumedLat', '53d38.4')
+        self.setParm('assumedLong', '500d35.3')
+        self.setParm('op', 'correct')
+         
+        tempResultDict = {'op': 'correct',
+                          'lat': '16d32.3',
+                          'long': '95d41.6',
+                          'altitude': '13d42.3',
+                          'assumedLat': '53d38.4',
+                          'assumedLong': '500d35.3',
+                          'error': 'assumedLong parm outside correct boundary.'}
         
         self.assertEqual(correct(self.inputDictionary), tempResultDict)
