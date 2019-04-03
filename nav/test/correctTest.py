@@ -135,15 +135,14 @@ class corrrectTest(unittest.TestCase):
         self.assertEqual(correct(self.inputDictionary), tempResultDict)
         
     def test200_010ShouldReturnWithErrorKeyIfXOfAltitudeParmIsGT90OrLT0(self):
-        self.setParm('op', 'correct')
         self.setParm('lat', '16d32.3')
         self.setParm('long', '95d41.6')
         self.setParm('altitude', '400d42.3')
         self.setParm('assumedLat', '53d38.4')
         self.setParm('assumedLong', '350d35.3')
+        self.setParm('op', 'correct')
          
         result = self.microservice()
-        print result
         resultDictionary = self.string2dict(result)
         print resultDictionary
-        self.assertTrue(resultDictionary.has_key('error'), True)
+        self.assertTrue(resultDictionary.has_key("error"), True)
