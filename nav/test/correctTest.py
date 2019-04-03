@@ -142,7 +142,12 @@ class corrrectTest(unittest.TestCase):
         self.setParm('assumedLong', '350d35.3')
         self.setParm('op', 'correct')
          
-        result = self.microservice()
-        resultDictionary = self.string2dict(result)
-        print resultDictionary
-        self.assertTrue(resultDictionary.has_key("error"), True)
+        tempResultDict = {'op': 'correct',
+                          'lat': '16d32.3',
+                          'long': '370d41.6',
+                          'altitude': '400d42.3',
+                          'assumedLat': '53d38.4',
+                          'assumedLong': '350d35.3',
+                          'error': 'altitude parm outside correct boundary.'}
+        
+        self.assertEqual(correct(self.inputDictionary), tempResultDict)
