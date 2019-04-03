@@ -155,7 +155,6 @@ class corrrectTest(unittest.TestCase):
     def test200_010ShouldReturnWithErrorKeyIfAltitudeIsNotPresent(self):
         self.setParm('lat', '16d32.3')
         self.setParm('long', '95d41.6')
-        self.setParm('altitude', '13d42.3')
         self.setParm('assumedLat', '53d38.4')
         self.setParm('assumedLong', '350d35.3')
         self.setParm('op', 'correct')
@@ -163,7 +162,6 @@ class corrrectTest(unittest.TestCase):
         tempResultDict = {'op': 'correct',
                           'lat': '16d32.3',
                           'long': '95d41.6',
-                          'altitude': '13d42.3',
                           'assumedLat': '53d38.4',
                           'assumedLong': '350d35.3',
                           'error': 'altitude parm not present.'}
