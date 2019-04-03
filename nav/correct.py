@@ -56,6 +56,14 @@ def correct(values = None):
         values['error'] = 'assumedLat parm outside correct boundary.'
         return values
     
+    tempAssumedLongX = int(values['assumedLong'].split('d')[0])
+    tempAssumedLongY = float(values['assumedLong'].split('d')[1])
+    
+    #Check x value of assumedLong
+    if (tempAssumedLongX < -90 or tempAssumedLongX > 90):
+        values['error'] = 'assumedLong parm outside correct boundary.'
+        return values
+    
     
     
     return values
