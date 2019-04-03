@@ -117,7 +117,7 @@ def correct(values = None):
     localHourAngleY = float(values['long'].split('d')[1]) + float(values['assumedLong'].split('d')[1])
     
     #Calculate intermmediate distance
-    intermmediateDistance = ( ((sin(int(values['lat']).split('d')[0]) + sin(float(values['lat']).split('d')[1])) * ((sin(int(values['assumedLat']).split('d')[0]) + sin(float(values['assumedLat']).split('d')[1])) 
+    intermmediateDistance = ( ((sin(int(values['lat'].split('d')[0])) + sin(float(values['lat'].split('d')[1]))) * ((sin(int(values['assumedLat']).split('d')[0]) + sin(float(values['assumedLat']).split('d')[1])) 
                                + ((cos(int(values['lat']).split('d')[0]) + cos(float(values['lat']).split('d')[1])) * ((cos(int(values['assumedLat']).split('d')[0]) + cos(float(values['assumedLat']).split('d')[1])) 
                                     * (cos(localhourAngleX) + cos(localHourAngleY) ))))))
     
