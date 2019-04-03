@@ -30,6 +30,30 @@ def correct(values = None):
         values['error'] = "assumedLong parm not present."
         return values
     
+    #Check if x portion of lat, long, altitude, assumedLat, and assumedLong are integers
+    try:
+        tempValues = values
+        for key in tempValues:
+            if (key == 'lat' or key == 'long' 
+                or key =='altitude' or key =='assumedLat' 
+                    or key == 'assumedLong'):
+                        int(tempValues[key].split('d')[0])
+    except ValueError:
+        values['error'] = 'Found parm with wrong type (correct: integer).'
+        return values
+    
+     #Check if x xportion of lat, long, altitude, assumedLat, and assumedLong are floats
+    try:
+        tempValues = values
+        for key in tempValues:
+            if (key == 'lat' or key == 'long' 
+                or key =='altitude' or key =='assumedLat' 
+                    or key == 'assumedLong'):
+                        float(tempValues[key].split('d')[1])
+    except ValueError:
+        values['error'] = 'Found parm with y.y portion as incorrect type. (correct: float)'
+        return values
+    
     #Check if lat is in appropriate bounds
     if (values['lat'] == '90d0.0'):
         values['error'] = 'invalid lat'
@@ -67,30 +91,6 @@ def correct(values = None):
     #Check x value of assumedLong
     if (tempAssumedLongX < 0 or tempAssumedLongX > 360):
         values['error'] = 'assumedLong parm outside correct boundary.'
-        return values
-    
-    #Check if x portion of lat, long, altitude, assumedLat, and assumedLong are integers
-    try:
-        tempValues = values
-        for key in tempValues:
-            if (key == 'lat' or key == 'long' 
-                or key =='altitude' or key =='assumedLat' 
-                    or key == 'assumedLong'):
-                        int(tempValues[key].split('d')[0])
-    except ValueError:
-        values['error'] = 'Found parm with wrong type (correct: integer).'
-        return values
-    
-     #Check if x xportion of lat, long, altitude, assumedLat, and assumedLong are floats
-    try:
-        tempValues = values
-        for key in tempValues:
-            if (key == 'lat' or key == 'long' 
-                or key =='altitude' or key =='assumedLat' 
-                    or key == 'assumedLong'):
-                        float(tempValues[key].split('d')[1])
-    except ValueError:
-        values['error'] = 'Found parm with y.y portion as incorrect type. (correct: float)'
         return values
     
     #Check if y.y portion of lat, long, altitude, assumedLat, and assumedLong are within correct bounds
