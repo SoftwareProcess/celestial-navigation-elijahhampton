@@ -86,6 +86,6 @@ def correct(values = None):
         if (key == 'lat' or key == 'long' 
                 or key =='altitude' or key =='assumedLat' 
                     or key == 'assumedLong'):
-                        if (float(values[key]).split('d')[1] < 0 or float(values[key]).split('d')[1] > 59):
+                        if (float(values[key].split('d')[1]) < 0 or float(values[key].split('d')[1]) > 59):
                             values['error'] = 'Found Parm with y portion outside of correct boundary.'
     return values
