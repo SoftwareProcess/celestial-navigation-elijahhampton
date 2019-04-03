@@ -115,8 +115,9 @@ def correct(values = None):
     
     #Calculate local hour angle
     localHourAngleX = (int(values['long'].split('d')[0]) + int(values['assumedLong'].split('d')[0]))
-    localHourAngleY = ((float(values['long'].split('d')[1]) + float(values['assumedLong'].split('d')[1])) % 60)
-    localHourAngleX = (int(values['long'].split('d')[0]) + int(values['assumedLong'].split('d')[0])) + (localHourAngleY)
+    localHourAngleY = (float(values['long'].split('d')[1]) + float(values['assumedLong'].split('d')[1]))
+    localHourAngleX = (int(values['long'].split('d')[0]) + int(values['assumedLong'].split('d')[0])) + int((localHourAngleY / 60))
+    localHourAngleY = (float(values['long'].split('d')[1]) + float(values['assumedLong'].split('d')[1])) % 60
     print(localHourAngleX)
     print(localHourAngleY)
     print(" ")
