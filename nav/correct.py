@@ -128,7 +128,13 @@ def correct(values = None):
     a2 = sin(   radians(   int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60)   )   )
     b1 = cos(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60)))
     b2 = cos(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60)))
-    b3 = cos(radians(localHourAngleX + (localHourAngleY / 60)))   
+    b3 = cos(radians(localHourAngleX + (localHourAngleY / 60)))  
+    
+    print(a1)
+    print(a2)
+    print(b1)
+    print(b2)
+    print(b3) 
     print(" ")
     print(" ") 
     
