@@ -198,6 +198,9 @@ def correct(values = None):
         correctedAzimuthX = int(correctedAzimuthX + 180)
     
     
+    #Round Y part for completion
+    round(correctedAzimuthY, 1)
+    
     #Convert correctedAzimuth and correctedDistance to strings
     correctedAzimuth = str(correctedAzimuthX) + 'd' + str(correctedAzimuthY)
     correctedDistance = str(correctedDistance)
