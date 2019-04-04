@@ -161,7 +161,6 @@ def correct(values = None):
     correctedDistanceY = correctedDistanceY % 60
     print('Corrected Distance Y After Mod 60: ', correctedDistanceY)
     correctedDistance = correctedDistanceX - correctedDistanceY
-    correctedDistance = radiansToDegrees(correctedDistance)
     correctedDistance = correctedDistance * 60
     
     
