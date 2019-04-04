@@ -92,8 +92,13 @@ class corrrectTest(unittest.TestCase):
         
         resultDict = correct(self.inputDictionary)
         
-        doesContainKey = bool('CorrectedAzimuth' in resultDict)
-        doesContainKey = bool('CorrectedDistance' in resultDict)
+        doesContainKey = False
+        
+        if ('CorrectedAzimuth' in resultDict):
+            doesContainKey = True
+        
+        if ('CorrectedDistance' in resultDict):
+            doesContainKey = True
         
         self.assertEqual(doesContainKey, True)
          
