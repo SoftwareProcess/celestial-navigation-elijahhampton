@@ -137,7 +137,7 @@ def correct(values = None):
         + ( round(cos(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60)))) * round(cos(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60)))) * 
         round(cos(radians(localHourAngleX + (localHourAngleY / 60)))) )  )
     
-    print(intermmediateDistance)
+    print('Intermmediate Distance: ', intermmediateDistance)
     
     #Calculate correctedAltitude
     preCorrectedAltitude = str(radiansToDegrees(asin(intermmediateDistance))) #Should have 15.41256
