@@ -181,7 +181,7 @@ def correct(values = None):
             
             acos( 
                 
-                (c1 - (c2 * c3) / d1 * d2)
+                (c1 - (c2 * c3)) / d1 * d2)
                 
                 )) #Should be 82.9490446
     
