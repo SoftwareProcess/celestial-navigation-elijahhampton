@@ -145,7 +145,10 @@ def correct(values = None):
     #Calculate correctedAltitude
     preCorrectedAltitude = str(radiansToDegrees(asin(intermmediateDistance))) #Should have 15.41256
     correctedAltitudeX = int(preCorrectedAltitude.split('.')[0])
-    correctedAltitudeY = float(preCorrectedAltitude.split('.')[1]) * 60
+    correctedAltitudeY = str((float(preCorrectedAltitude.split('.')[1]) * 180) / 3.14)
+    correctedAltitudeX = int(correctedAltitudeY.split('.')[0])
+    correctedAltitudeY = int(correctedAltitudeY.split('.')[1]) * 60
+    
     
     print('Corrected Altitude X: ', correctedAltitudeX)
     print('Corrected Altitude Y: ', correctedAltitudeY)
