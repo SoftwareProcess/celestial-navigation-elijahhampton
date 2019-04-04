@@ -189,7 +189,6 @@ def correct(values = None):
                 
                 ))) #Should be 82.9490446
     
-    preCorrectedAzimuth = (preCorrectedAzimuth * 180) / 3.14
     print('Pre Corrected Azimuth: ', preCorrectedAzimuth)
     
     
