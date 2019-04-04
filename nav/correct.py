@@ -138,7 +138,7 @@ def correct(values = None):
     print(" ")
     print(" ") 
     
-    intermmediateDistance = ((round(a1) * round(a2)) + (round(b1) * round(b2) * round(b3)))
+    intermmediateDistance = ((a1 * a2) + (b1 * b2 * b3))
     
     print('Intermmediate Distance: ', intermmediateDistance)
     
