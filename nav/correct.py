@@ -156,7 +156,6 @@ def correct(values = None):
     print('Corrected Distance X: ', correctedDistanceX)
     
     correctedDistanceY = float(values['altitude'].split('d')[1]) - correctedAltitudeY
-    correctDistanceX = correctedDistanceX + int(correctedDistanceY / 60)
     print('Correct Distance Y Before Mod 60', correctedDistanceY)
     correctedDistanceY = correctedDistanceY % 60
     print('Corrected Distance Y After Mod 60: ', correctedDistanceY)
