@@ -199,7 +199,7 @@ def correct(values = None):
     
     
     #Round Y part for completion
-    round(correctedAzimuthY, 1)
+    round(correctedAzimuthY, 3)
     print(correctedAzimuthY)
     
     #Convert correctedAzimuth and correctedDistance to strings
