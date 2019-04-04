@@ -173,7 +173,7 @@ def correct(values = None):
     c2 = sin(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60)))
     c3 = intermmediateDistance
     d1 = cos(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60)))
-    d2 = cos(radians(correctedAltitudeX + correctedAltitudeY))
+    d2 = cos(radians(correctedAltitudeX + correctedAltitudeY / 60))
     
     print(c1)
     print(c2)
