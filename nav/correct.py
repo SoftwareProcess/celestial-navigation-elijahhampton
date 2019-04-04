@@ -153,7 +153,9 @@ def correct(values = None):
     #Calculate distance in arc minutes and round to nearest 0.1 arc minute
     #calculate
     correctedDistanceX = int(values['altitude'].split('d')[0]) - correctedAltitudeX
+    print('Corrected Distance X: ', correctedDistanceX)
     correctedDistanceY = float(values['altitude'].split('d')[1]) - correctedAltitudeY
+    print('Corrected Distance Y: ', correctedDistanceY)
     correctedDistance = (correctedDistanceY / 60) + correctedDistanceX
     correctedDistance = correctedDistance * 60
     print('Corrected Distance Before Round: ', correctedDistance)
