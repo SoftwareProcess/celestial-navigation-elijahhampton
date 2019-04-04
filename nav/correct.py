@@ -175,6 +175,12 @@ def correct(values = None):
     d1 = cos(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60)))
     d2 = cos(radians(correctedDistance))
     
+    print(c1)
+    print(c2)
+    print(c3)
+    print(d1)
+    print(d2)
+    
     
     preCorrectedAzimuth = acos( (c1 - (c2 * c3)) / (d1 * d2) ) #Should be 82.9490446
     
