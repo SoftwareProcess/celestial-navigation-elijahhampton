@@ -209,11 +209,6 @@ def correct(values = None):
     correctedAzimuth = str(correctedAzimuthX) + 'd' + str(correctedAzimuthY)
     correctedDistance = str(correctedDistance)
     
-    print(" uhh ")
-    print(correctedAzimuth)
-    print(correctedDistance)
-    print( " uhh ")
-    
     #Add values to dictionary
     values['correctedAzimuth'] = correctedAzimuth
     values['correctedDistance'] = correctedDistance
