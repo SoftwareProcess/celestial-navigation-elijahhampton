@@ -158,7 +158,6 @@ def correct(values = None):
     correctedDistanceX = correctedDistanceX + int(correctedDistanceY / 60)
     correctedDistanceY = correctedDistanceY % 60
     print('Corrected Distance Y: ', correctedDistanceY)
-    correctedDistance = (correctedDistanceY / 60) + correctedDistanceX
     correctedDistance = correctedDistance * 60
     print('Corrected Distance Before Round: ', correctedDistance)
     #Round to nearest arc minute 1
