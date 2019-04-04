@@ -157,20 +157,13 @@ def correct(values = None):
     
     #Calculate distance in arc minutes and round to nearest 0.1 arc minute
     #calculate
-    correctedDistanceX = int(values['altitude'].split('d')[0]) - correctedAltitudeX
-    print('Corrected Distance X: ', correctedDistanceX)
-    correctedDistanceY = float(values['altitude'].split('d')[1]) - correctedAltitudeY
-    correctedDistanceX = correctedDistanceX + int(correctedDistanceY / 60)
-    print('Correct Distance Y Before Mod 60', correctedDistanceY)
-    correctedDistanceY = correctedDistanceY % 60
-    print('Corrected Distance Y After Mod 60: ', correctedDistanceY)
+    correctedDistanceX = int(values['altitude']) + (float(correctedAltitudeY) / 60)
+    correctedDistanceY = int(correctedAltitudeX) + (float(correctedAltitudeY) / 60)
     correctedDistance = correctedDistanceX - correctedDistanceY
-    correctedDistance = radiansToDegrees(correctedDistance)
-    correctedDistance = correctedDistance * 60
+    correctedDistance = int(round(correctedDistance * 60))
     
     
-    print('Corrected Distance Before Round: ', correctedDistance)
-    round(correctedDistance)
+    
     print('Corrected Distance After Round: ', correctedDistance)
     
     #Determine compass direction in which to make the distance adjustment
