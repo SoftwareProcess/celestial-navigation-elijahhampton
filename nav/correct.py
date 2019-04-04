@@ -154,12 +154,15 @@ def correct(values = None):
     #calculate
     correctedDistanceX = int(values['altitude'].split('d')[0]) - correctedAltitudeX
     print('Corrected Distance X: ', correctedDistanceX)
+    
     correctedDistanceY = float(values['altitude'].split('d')[1]) - correctedAltitudeY
+    correctDistanceX = correctedDistanceX + int(correctedDistanceY / 60)
     correctedDistanceY = correctedDistanceY % 60
     print('Corrected Distance Y: ', correctedDistanceY)
-    correctedDistance = int(correctedDistanceY / 60) + correctedDistanceX
+    correctedDistance = correctDistanceX + correctedDistanceY
+    
+    
     print('Corrected Distance Before Round: ', correctedDistance)
-    #Round to nearest arc minute 1
     round(correctedDistance)
     print('Corrected Distance After Round: ', correctedDistance)
     
