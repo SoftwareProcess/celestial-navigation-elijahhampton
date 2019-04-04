@@ -62,7 +62,7 @@ def correct(values = None):
         return values
     
     #Check if lat is in appropriate bounds
-    if (int(values['lat']).split('d')[0] > 90 or int(values['lat']).split('d')[0] < -90):
+    if (int(values['lat'].split('d')[0]) > 90 or int(values['lat'].split('d')[0]) < -90):
         values['error'] = 'invalid lat'
         return values
     
