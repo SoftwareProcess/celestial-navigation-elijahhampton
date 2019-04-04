@@ -85,7 +85,7 @@ class corrrectTest(unittest.TestCase):
 #Sad Path Test
     def test200_010ShouldReturnAppropriateErrorIfLatParmIsLTNeg90OrGT90(self):
         self.setParm('op', 'correct')
-        self.setParm('lat', '16d0.0')
+        self.setParm('lat', '-300d0.0')
         self.setParm('long', '95d41.6')
         self.setParm('altitude', '13d42.3')
         self.setParm('assumedLat', '53d38.4')
