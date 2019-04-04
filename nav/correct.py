@@ -189,11 +189,13 @@ def correct(values = None):
                 
                 ))) #Should be 82.9490446
     
+    print('Pre Corrected Azimuth: ', preCorrectedAzimuth)
+    
     correctedAzimuthX = int(preCorrectedAzimuth.split('.')[0])
     correctedAzimuthY = "." + str(preCorrectedAzimuth.split('.')[1])
     correctedAzimuthY = float(correctedAzimuthY) * 60
-    print('Pre Corrected Azimuth X: ', correctedAzimuthX)
-    print('Pre Corrected Azimuth Y: ', correctedAzimuthY)
+    print('Corrected Azimuth X: ', correctedAzimuthX)
+    print('Corrected Azimuth Y: ', correctedAzimuthY)
     
     
     if (correctedDistance < 0):
