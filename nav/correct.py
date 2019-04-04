@@ -178,7 +178,6 @@ def correct(values = None):
     
     preCorrectedAzimuth =  str( 
         
-        radiansToDegrees( 
             
             acos( 
                 (sin(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60)))
@@ -189,7 +188,7 @@ def correct(values = None):
                 
                 
                 
-                ))) #Should be 82.9490446
+                )) #Should be 82.9490446
     
     print('Pre Corrected Azimuth: ', preCorrectedAzimuth)
     
