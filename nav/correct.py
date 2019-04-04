@@ -150,9 +150,7 @@ def correct(values = None):
     correctedAltitudeY = "." + str(preCorrectedAltitude.split('.')[1])
     correctedAltitudeY = float(correctedAltitudeY)
     print('Pre Corrected Altitude Y: ', correctedAltitudeY)
-    correctedAltitudeX = int(correctedAltitudeY.split('.')[0])
     print('Corrected Altitude X: ', correctedAltitudeX)
-    correctedAltitudeY = int(correctedAltitudeY.split('.')[1]) * 60
     print('Corrected Altitude Y: ', correctedAltitudeY)
     
     
