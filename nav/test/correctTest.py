@@ -83,7 +83,7 @@ class corrrectTest(unittest.TestCase):
         self.assertEqual(correct(self.inputDictionary),tempResultDict)
          
 #Sad Path Test
-    def test200_010LatParmShouldBeGreaterThan90d0(self):
+    def test200_010ShouldReturnAppropriateErrorIfLatParmIsLTNeg90OrGT90(self):
         self.setParm('op', 'correct')
         self.setParm('lat', '16d0.0')
         self.setParm('long', '95d41.6')
@@ -92,7 +92,7 @@ class corrrectTest(unittest.TestCase):
         self.setParm('assumedLong', '350d35.3')
           
         tempResultDict = {'op': 'correct',
-                          'lat': '90d0.0',
+                          'lat': '-300d0.0',
                           'long': '95d41.6',
                           'altitude': '13d42.3',
                           'assumedLat': '53d38.4',
