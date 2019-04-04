@@ -176,14 +176,7 @@ def correct(values = None):
     d2 = cos(radians(correctedDistance))
     
     
-    preCorrectedAzimuth =  str( 
-        
-            
-            acos( 
-                
-                (c1 - (c2 * c3)) / d1 * d2)
-                
-                )) #Should be 82.9490446
+    preCorrectedAzimuth = acos( (c1 - (c2 * c3)) / (d1 * d2) ) #Should be 82.9490446
     
     print('Pre Corrected Azimuth: ', preCorrectedAzimuth)
     
