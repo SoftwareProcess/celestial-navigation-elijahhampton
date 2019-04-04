@@ -176,7 +176,8 @@ def correct(values = None):
     
     preCorrectedAzimuth =  str( 
         
-        
+        radiansToDegrees( 
+            
             acos( 
                 (sin(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60)))
                     - (sin(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60))) * intermmediateDistance))
@@ -186,13 +187,13 @@ def correct(values = None):
                 
                 
                 
-                )) #Should be 82.9490446
-    
-    print('Pre Corrected Azimuth: ', preCorrectedAzimuth)
-    
+                ))) #Should be 82.9490446
     
     correctedAzimuthX = int(preCorrectedAzimuth.split('.')[0])
-    correctedAzimuthY = float(preCorrectedAzimuth.split('.')[1]) * 60
+    correctedAzimuthY = "." + str(preCorrectedAzimuth.split('.')[1])
+    correctedAzimuthY = float(correctedAzimuthY) * 60
+    print('Pre Corrected Azimuth X: ', correctedAzimuthX)
+    print('Pre Corrected Azimuth Y: ', correctedAzimuthY)
     
     
     if (correctedDistance < 0):
