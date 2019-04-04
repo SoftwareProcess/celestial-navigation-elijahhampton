@@ -169,26 +169,22 @@ def correct(values = None):
     print('Corrected Distance After Round: ', correctedDistance)
     
     #Determine compass direction in which to make the distance adjustment
-    print(   sin(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60))    )    )
-    print(sin(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60))))
-    print(intermmediateDistance)
-    print(cos(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60))))
-    print(cos(radians(correctedDistance)))
+    c1 = sin(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60))    )    
+    c2 = sin(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60)))
+    c3 = intermmediateDistance
+    d1 = cos(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60)))
+    d2 = cos(radians(correctedDistance))
     
     
     preCorrectedAzimuth =  str( 
         
+        radiansToDegrees( 
             
             acos( 
-                (sin(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60)))
-                    - (sin(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60))) * intermmediateDistance))
-                        / ( cos(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60))) * cos(radians(correctedDistance)) )
                 
+                (c1 - (c2 * c3) / d1 * d2)
                 
-                
-                
-                
-                )) #Should be 82.9490446
+                ))) #Should be 82.9490446
     
     print('Pre Corrected Azimuth: ', preCorrectedAzimuth)
     
@@ -208,6 +204,7 @@ def correct(values = None):
     correctedAzimuth = str(correctedAzimuthX) + 'd' + str(correctedAzimuthY)
     correctedDistance = str(correctedDistance)
     
+
     #Add values to dictionary
     values['correctedAzimuth'] = correctedAzimuth
     values['correctedDistance'] = correctedDistance
