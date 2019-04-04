@@ -95,10 +95,10 @@ class corrrectTest(unittest.TestCase):
         
         doesContainKey = False
         
-        if ('CorrectedAzimuth' in resultDict):
+        if ('correctedAzimuth' in resultDict):
             doesContainKey = True
         
-        if ('CorrectedDistance' in resultDict):
+        if ('correctedDistance' in resultDict):
             doesContainKey = True
         
         self.assertEqual(doesContainKey, True)
