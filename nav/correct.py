@@ -160,7 +160,7 @@ def correct(values = None):
     print('Correct Distance Y Before Mod 60', correctedDistanceY)
     correctedDistanceY = correctedDistanceY % 60
     print('Corrected Distance Y After Mod 60: ', correctedDistanceY)
-    correctedDistance = correctDistanceX + correctedDistanceY
+    correctedDistance = correctDistanceX - correctedDistanceY
     
     
     print('Corrected Distance Before Round: ', correctedDistance)
