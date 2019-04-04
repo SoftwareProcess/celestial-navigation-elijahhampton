@@ -140,8 +140,8 @@ def correct(values = None):
     
     intermmediateDistance = ((a1 * a2) + (b1 * b2 * b3))
     
-    print('Intermmediate Distance: ', round(intermmediateDistance, 3))
-    round(intermmediateDistance, 3)
+    print('Intermmediate Distance: ', intermmediateDistance)
+    #round(intermmediateDistance, 3)
     
     #Calculate correctedAltitude
     preCorrectedAltitude = str(radiansToDegrees(asin(intermmediateDistance))) #Should have 15.41256
