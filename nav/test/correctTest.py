@@ -75,7 +75,7 @@ class corrrectTest(unittest.TestCase):
                           'lat': '16d32.3',
                           'long': '95d41.6',
                           'altitude': '13d42.3',
-                          'assumedLat': '-53d38.4',
+                          'assumedLat': '53d38.4',
                           'assumedLong': '350d35.3',
                           'correctedAzimuth': '82d55.6',
                           'correctedDistance': '104'}
