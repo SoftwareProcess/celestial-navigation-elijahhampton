@@ -1,5 +1,5 @@
 from __future__ import division
-from math import sin, cos, asin, acos, radians
+from math import sin, cos, asin, acos, radians, pi
 
 """ 
 Created on April 1, 2019
@@ -8,7 +8,7 @@ Created on April 1, 2019
 """
 
 def radiansToDegrees(numInRadians):
-    numInDegrees = (numInRadians * 180) / 3.14
+    numInDegrees = (numInRadians * 180) / pi
     return numInDegrees
 
 def correct(values = None):
