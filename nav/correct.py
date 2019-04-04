@@ -6,6 +6,7 @@ Created on April 1, 2019
 
 @author Elijah Hampton
 """
+from __builtin__ import False
 
 def radiansToDegrees(numInRadians):
     numInDegrees = (numInRadians * 180) / pi
@@ -210,5 +211,18 @@ def correct(values = None):
     values['correctedAzimuth'] = correctedAzimuth
     values['correctedDistance'] = correctedDistance
     
+    nonStringValue = False
+    
+    for key in values:
+        if (isinstance(key, str) == False):
+            nonStringValue = True
+            
+    for key in values:
+        if (isinstance(values[key], str) == False):
+            nonStringValue = True
+    
+    if nonStringValue == True:
+        values['error'] = 'Result dict contains non string key or value.'
+        return values
     
     return values
