@@ -151,6 +151,9 @@ def correct(values = None):
     
     print('Corrected Altitude X: ', correctedAltitudeX)
     print('Corrected Altitude Y: ', correctedAltitudeY)
+    print(" ")
+    print(" ")
+    
     
     #Calculate distance in arc minutes and round to nearest 0.1 arc minute
     #calculate
