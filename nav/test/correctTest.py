@@ -91,6 +91,7 @@ class corrrectTest(unittest.TestCase):
         self.setParm('assumedLong', '350d35.3')
         
         resultDict = correct(self.inputDictionary)
+        print(resultDict)
         
         doesContainKey = False
         
