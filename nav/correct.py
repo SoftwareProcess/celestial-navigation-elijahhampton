@@ -147,6 +147,9 @@ def correct(values = None):
     correctedAltitudeX = int(preCorrectedAltitude.split('.')[0])
     correctedAltitudeY = float(preCorrectedAltitude.split('.')[1]) * 60
     
+    print('Corrected Altitude X: ', correctedAltitudeX)
+    print('Corrected Altitude Y: ', correctedAltitudeY)
+    
     #Calculate distance in arc minutes and round to nearest 0.1 arc minute
     #calculate
     correctedDistanceX = int(values['altitude'].split('d')[0]) - correctedAltitudeX
