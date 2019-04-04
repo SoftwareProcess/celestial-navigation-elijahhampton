@@ -81,6 +81,21 @@ class corrrectTest(unittest.TestCase):
                           'correctedDistance': '104'}
         
         self.assertEqual(correct(self.inputDictionary),tempResultDict)
+        
+    def test200_001CorrectedDistanceAndCorrectedAzimuthShouldBeAddedToDictionaryAfterReturning(self):
+        self.setParm('op', 'correct')
+        self.setParm('lat', '16d32.3')
+        self.setParm('long', '95d41.6')
+        self.setParm('altitude', '13d42.3')
+        self.setParm('assumedLat', '53d38.4')
+        self.setParm('assumedLong', '350d35.3')
+        
+        resultDict = correct(self.inputDictionary)
+        
+        doesContainKey = bool('CorrectedAzimuth' in resultDict)
+        doesContainKey = bool('CorrectedDistance' in resultDict)
+        
+        self.assertEqual(doesContainKey, True)
          
 #Sad Path Test
     def test200_010ShouldReturnAppropriateErrorIfLatParmIsLTNeg90OrGT90(self):
