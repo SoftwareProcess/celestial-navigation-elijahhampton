@@ -195,7 +195,7 @@ def correct(values = None):
     
     if (correctedDistance < 0):
         correctedDistance = abs(correctedDistance)
-        correctedAzimuthX = int(round((correctedAzimuthX + 180) % 360))
+        correctedAzimuthX = int(correctedAzimuthX + 180)
     
     
     #Convert correctedAzimuth and correctedDistance to strings
