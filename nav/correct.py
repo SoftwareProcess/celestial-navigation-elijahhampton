@@ -124,18 +124,15 @@ def correct(values = None):
     print(" ")
     
     #Calculate intermmediate distance
-    print(sin(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60))))
-    print(   sin(   radians(   int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60)   )   ))
-    print(cos(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60))))
-    print(cos(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60))))
-    print(cos(radians(localHourAngleX + (localHourAngleY / 60))))   
+    a1 = sin(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60)))
+    a2 = sin(   radians(   int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60)   )   )
+    b1 = cos(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60)))
+    b2 = cos(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60)))
+    b3 = cos(radians(localHourAngleX + (localHourAngleY / 60)))   
     print(" ")
     print(" ") 
     
-    intermmediateDistance = (
-        (round(sin(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60)))) + round(sin(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60)))))
-        + ( round(cos(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60)))) * round(cos(radians(int(values['assumedLat'].split('d')[0]) + (float(values['assumedLat'].split('d')[1]) / 60)))) * 
-        round(cos(radians(localHourAngleX + (localHourAngleY / 60)))) )  )
+    intermmediateDistance = (round(a1) * round(a2)) + (round(b1) * round(b2) * round(b3))
     
     print('Intermmediate Distance: ', intermmediateDistance)
     
