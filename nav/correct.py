@@ -154,15 +154,12 @@ def correct(values = None):
     #calculate
     correctedDistanceX = int(values['altitude'].split('d')[0]) - correctedAltitudeX
     correctedDistanceY = float(values['altitude'].split('d')[1]) - correctedAltitudeY
-    print(correctedDistanceX)
-    print(correctedDistanceY)
-    
     correctedDistance = (correctedDistanceY / 60) + correctedDistanceX
-    print('run it', correctedDistance)
     correctedDistance = correctedDistance * 60
-    print('go', correctedDistance)
+    print('Corrected Distance Before Round: ', correctedDistance)
     #Round to nearest arc minute 1
     round(correctedDistance)
+    print('Corrected Distance After Round: ', correctedDistance)
     
     #Determine compass direction in which to make the distance adjustment
     print(   sin(radians(int(values['lat'].split('d')[0]) + (float(values['lat'].split('d')[1]) / 60))    )    )
