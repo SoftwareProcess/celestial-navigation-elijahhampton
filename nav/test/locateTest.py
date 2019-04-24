@@ -5,7 +5,7 @@ Created on March 04, 2019
 """
 
 import unittest
-from nav.locate import locate
+from nav import locate
 from jinja2.utils import missing
 
 class locateTest(unittest.TestCase):
