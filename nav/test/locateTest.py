@@ -11,10 +11,43 @@ from jinja2.utils import missing
 class locateTest(unittest.TestCase):
 
     def setUp(self):
-        pass
+        self.inputDictionary = {}
+        self.errorKey = "error"
+        self.solutionKey = "probability"
+        self.BX_PATH = '/nav?'
+        self.BX_PORT = 5000
+        self.BX_URL = 'localhost'
 
     def tearDown(self):
-        pass
+        self.inputDictionary = {}
+        
+    def setParm(self, key, value):
+        self.inputDictionary[key] = value
+    
+    def microservice(self):
+        try:
+            theParm = urlencode(self.inputDictionary)
+            theConnection = httplib.HTTPConnection(self.BX_URL, self.BX_PORT)
+            theConnection.request("GET", self.BX_PATH + theParm)
+            theStringResponse = theConnection.getresponse().read()
+            return theStringResponse
+        except Exception as e:
+            return "error encountered during transaction"
+        
+    def string2dict(self, httpResponse):
+        '''Convert JSON string to dictionary'''
+        result = {}
+        try:
+            jsonString = httpResponse.replace("'", "\"")
+            unicodeDictionary = json.loads(jsonString)
+            for element in unicodeDictionary:
+                if(isinstance(unicodeDictionary[element],unicode)):
+                    result[str(element)] = str(unicodeDictionary[element])
+                else:
+                    result[str(element)] = unicodeDictionary[element]
+        except Exception as e:
+            result['diagnostic'] = str(e)
+        return result
     
 #     ----------------------------------------------------------------------
 
