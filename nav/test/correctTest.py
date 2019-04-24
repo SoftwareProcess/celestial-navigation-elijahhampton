@@ -356,4 +356,4 @@ class corrrectTest(unittest.TestCase):
         
         resultDict = correct(self.inputDictionary)
         
-        self.assertEqual(correct(resultDict.has_key('error'), True)
+        self.assertEqual(correct(resultDict.has_key('error'), True))

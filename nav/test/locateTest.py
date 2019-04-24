@@ -27,7 +27,7 @@ class locateTest(unittest.TestCase):
 
 
 # Sad Path Test
-def test200_010ShouldReturnWithErrorKeyIfXOfAssumedLatIsGTNegNinety(self):
+    def test200_010ShouldReturnWithErrorKeyIfXOfAssumedLatIsGTNegNinety(self):
         self.setParm('assumedLat', '-91d38.4')
         self.setParm('assumedLong', '350d35.3')
         self.setParm('corrections', '[[100,1d0.0]]')
