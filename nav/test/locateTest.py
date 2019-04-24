@@ -7,7 +7,7 @@ Created on March 04, 2019
 import unittest
 from urllib import urlencode
 import httplib
-import nav.locate
+from nav import locate
 import json
 from jinja2.utils import missing
 
