@@ -9,7 +9,7 @@ from urllib import urlencode
 import httplib
 import json
 from jinja2.utils import missing
-import nav.locate
+import nav.locate as nav
 
 class locateTest(unittest.TestCase):
 
@@ -74,4 +74,4 @@ class locateTest(unittest.TestCase):
                           'assumedLong': '350d35.3',
                           'error': 'assumedLat parm outside correct boundary.'}
          
-        self.assertEqual(locate(self.inputDictionary), tempResultDict)
+        self.assertEqual(nav.locate(self.inputDictionary), tempResultDict)
