@@ -2,10 +2,6 @@
 Created on April 1, 2019
 
 @author Elijah Hampton
-- self.setParm on all
-- result = self.microservice() get result from micro
-- resultDictionary = self.string2dict(result) turn result to dict
-- self.assertEqual(func(self.inputDict), resultDict) test results
 """
 
 import unittest
