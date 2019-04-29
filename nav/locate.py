@@ -15,7 +15,7 @@ def locate(values = None):
             if (key == 'assumedLat'):
                         float(tempValues[key].split('d')[1])
     except ValueError:
-        values['error'] = 'Found parm with y.y portion as incorrect type. (correct: float)'
+        values['error'] = 'Found parm with y.y portion as incorrect type. (correct: float).'
         return values
     
     if (int(values['assumedLat'].split('d')[0]) < -90 or int(values['assumedLat'].split('d')[0]) > 90):
