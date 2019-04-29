@@ -70,7 +70,7 @@ class locateTest(unittest.TestCase):
         self.setParm('op', 'locate')
           
         tempResultDict = {'op': 'locate',
-                          'assumedLat': '-53d38.4',
+                          'assumedLat': '-91d38.4',
                           'assumedLong': '350d35.3',
                           'error': 'assumedLat parm outside correct boundary.'}
          
