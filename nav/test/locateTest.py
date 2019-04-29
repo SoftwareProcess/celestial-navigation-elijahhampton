@@ -132,3 +132,17 @@ class locateTest(unittest.TestCase):
                           'error': 'Found parm with wrong type (correct: integer).'}
          
         self.assertEqual(locate(self.inputDictionary), tempResultDict)
+        
+    def test200_010ShouldReturnWithErrorKeyIfYOfAssumedLatIsFloat(self):
+        self.setParm('assumedLat', '-53d0')
+        self.setParm('assumedLong', '350d35.3')
+        self.setParm('corrections', '[[100,1d0.0]]')
+        self.setParm('op', 'locate')
+          
+        tempResultDict = {'op': 'locate',
+                          'assumedLat': '-53d0',
+                          'assumedLong': '350d35.3',
+                          'corrections': '[[100,1d0.0]]',
+                          'error': 'Found parm with y.y portion as incorrect type. (correct: float)'}
+         
+        self.assertEqual(locate(self.inputDictionary), tempResultDict)
