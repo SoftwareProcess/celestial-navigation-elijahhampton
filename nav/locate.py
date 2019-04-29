@@ -30,6 +30,6 @@ def locate(values = None):
     if (float(values['assumedLong'].split('d')[1]) < 0 or float(values['assumedLong'].split('d')[1]) > 59):
         values['error']= 'assumedLong parm outside correct boundary.'
         
-    if (int(values['corrections'][0]) < 0):
+    if (int(values['corrections'][0][0]) < 0):
         values['error'] = 'Corrected Distance is Negative'
     return values
