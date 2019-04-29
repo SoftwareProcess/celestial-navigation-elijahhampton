@@ -24,7 +24,7 @@ def locate(values = None):
     if (float(values['assumedLat'].split('d')[1]) < 0 or float(values['assumedLat'].split('d')[1]) > 59):
         values['error']= 'assumedLat parm outside correct boundary.'
     
-    if (float(values['assumedLong'].split('d')[0]) < 0):
+    if (float(values['assumedLong'].split('d')[0]) < 0 or float(values['assumedLong'].split('d')[0]) > 360):
         values['error']= 'assumedLong parm outside correct boundary.'
     
     return values
