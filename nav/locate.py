@@ -3,7 +3,7 @@ def locate(values = None):
     try:
         tempValues = values
         for key in tempValues:
-            if (key == 'assumedLat'):
+            if (key == 'assumedLat' or key == 'assumedLong'):
                         int(tempValues[key].split('d')[0])
     except ValueError:
         values['error'] = 'Found parm with wrong type (correct: integer).'
@@ -12,7 +12,7 @@ def locate(values = None):
     try:
         tempValues = values
         for key in tempValues:
-            if (key == 'assumedLat'):
+            if (key == 'assumedLat' or key == 'assumedLong'):
                         float(tempValues[key].split('d')[1])
     except ValueError:
         values['error'] = 'Found parm with y.y portion as incorrect type. (correct: float).'

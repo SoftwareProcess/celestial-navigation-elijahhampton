@@ -188,3 +188,17 @@ class locateTest(unittest.TestCase):
                           'error': 'assumedLong parm outside correct boundary.'}
          
         self.assertEqual(locate(self.inputDictionary), tempResultDict)
+        
+    def test200_010ShouldReturnWithErrorKeyIfXOfAssumedLongIsNotInteger(self):
+        self.setParm('assumedLat', '-53d38.4')
+        self.setParm('assumedLong', '350.1d35.3')
+        self.setParm('corrections', '[[100,1d0.0]]')
+        self.setParm('op', 'locate')
+          
+        tempResultDict = {'op': 'locate',
+                          'assumedLat': '-53d38.4',
+                          'assumedLong': '350.1d35.3',
+                          'corrections': '[[100,1d0.0]]',
+                          'error': 'Found parm with wrong type (correct: integer).'}
+         
+        self.assertEqual(locate(self.inputDictionary), tempResultDict)
