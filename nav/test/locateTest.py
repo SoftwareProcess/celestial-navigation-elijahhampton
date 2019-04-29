@@ -9,7 +9,7 @@ from urllib import urlencode
 import httplib
 import json
 from jinja2.utils import missing
-import nav
+import nav.locate
 
 class locateTest(unittest.TestCase):
 
