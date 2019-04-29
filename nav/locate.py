@@ -1,2 +1,4 @@
 def locate(values = None):
-    pass
+    if (values['assumedLat'] > -90):
+        values['error']= 'assumedLat parm outside correct boundary.'
+    return values
