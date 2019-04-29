@@ -1,4 +1,14 @@
 def locate(values = None):
+    
+    try:
+        tempValues = values
+        for key in tempValues:
+            if (key == 'assumedLong'):
+                        int(tempValues[key].split('d')[0])
+    except ValueError:
+        values['error'] = 'Found parm with wrong type (correct: integer).'
+        return values
+    
     if (int(values['assumedLat'].split('d')[0]) < -90 or int(values['assumedLat'].split('d')[0]) > 90):
         values['error']= 'assumedLat parm outside correct boundary.'
         

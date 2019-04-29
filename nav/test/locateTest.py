@@ -129,6 +129,6 @@ class locateTest(unittest.TestCase):
                           'assumedLat': '-53.2d0',
                           'assumedLong': '350d35.3',
                           'corrections': '[[100,1d0.0]]',
-                          'error': 'assumedLat parm is of the wrong type.'}
+                          'error': 'Found parm with wrong type (correct: integer).'}
          
         self.assertEqual(locate(self.inputDictionary), tempResultDict)
