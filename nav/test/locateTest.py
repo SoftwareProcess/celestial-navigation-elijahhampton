@@ -133,3 +133,16 @@ class locateTest(unittest.TestCase):
          
         self.assertEqual(locate(self.inputDictionary), tempResultDict)
         
+    def test200_010ShouldReturnWithErrorKeyIfXOfAssumedLongLTZero(self):
+        self.setParm('assumedLat', '-53d38.4')
+        self.setParm('assumedLong', '-2d35.3')
+        self.setParm('corrections', '[[100,1d0.0]]')
+        self.setParm('op', 'locate')
+          
+        tempResultDict = {'op': 'locate',
+                          'assumedLat': '-53d38.4',
+                          'assumedLong': '-2d35.3',
+                          'corrections': '[[100,1d0.0]]',
+                          'error': 'assumedLong parm outside correct boundary.'}
+         
+        self.assertEqual(locate(self.inputDictionary), tempResultDict)
