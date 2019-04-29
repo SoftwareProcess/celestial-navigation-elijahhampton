@@ -72,6 +72,7 @@ class locateTest(unittest.TestCase):
         tempResultDict = {'op': 'locate',
                           'assumedLat': '-91d38.4',
                           'assumedLong': '350d35.3',
+                          'corrections': '[[100,1d0.0]]',
                           'error': 'assumedLat parm outside correct boundary.'}
          
         self.assertEqual(locate(self.inputDictionary), tempResultDict)
