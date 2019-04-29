@@ -1,2 +1,2 @@
-def locate():
+def locate(values = None):
     pass
