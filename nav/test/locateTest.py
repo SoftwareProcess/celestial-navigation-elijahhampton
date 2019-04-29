@@ -92,13 +92,13 @@ class locateTest(unittest.TestCase):
         self.assertEqual(locate(self.inputDictionary), tempResultDict)
         
     def test200_010ShouldReturnWithErrorKeyIfYOfAssumedLatIsLTZero(self):
-        self.setParm('assumedLat', '-53d-5')
+        self.setParm('assumedLat', '-53d-5.1')
         self.setParm('assumedLong', '350d35.3')
         self.setParm('corrections', '[[100,1d0.0]]')
         self.setParm('op', 'locate')
           
         tempResultDict = {'op': 'locate',
-                          'assumedLat': '-53d-5',
+                          'assumedLat': '-53d-5.1',
                           'assumedLong': '350d35.3',
                           'corrections': '[[100,1d0.0]]',
                           'error': 'assumedLat parm outside correct boundary.'}
@@ -120,13 +120,13 @@ class locateTest(unittest.TestCase):
         self.assertEqual(locate(self.inputDictionary), tempResultDict)
         
     def test200_010ShouldReturnWithErrorKeyIfXOfAssumedLatIsInteger(self):
-        self.setParm('assumedLat', '-53.2d0')
+        self.setParm('assumedLat', '-53.2d0.0')
         self.setParm('assumedLong', '350d35.3')
         self.setParm('corrections', '[[100,1d0.0]]')
         self.setParm('op', 'locate')
           
         tempResultDict = {'op': 'locate',
-                          'assumedLat': '-53.2d0',
+                          'assumedLat': '-53.2d0.0',
                           'assumedLong': '350d35.3',
                           'corrections': '[[100,1d0.0]]',
                           'error': 'Found parm with wrong type (correct: integer).'}
@@ -143,6 +143,6 @@ class locateTest(unittest.TestCase):
                           'assumedLat': '-53d0',
                           'assumedLong': '350d35.3',
                           'corrections': '[[100,1d0.0]]',
-                          'error': 'Found parm with y.y portion as incorrect type. (correct: float)'}
+                          'error': 'Found parm with y.y portion as incorrect type. (correct: float).'}
          
         self.assertEqual(locate(self.inputDictionary), tempResultDict)
