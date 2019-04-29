@@ -4,12 +4,12 @@ Created on March 04, 2019
 @author Elijah Hampton
 """
 
+from nav.locate import locate
 import unittest
 from urllib import urlencode
 import httplib
 import json
 from jinja2.utils import missing
-from nav import locate
 
 class locateTest(unittest.TestCase):
 
