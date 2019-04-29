@@ -74,4 +74,4 @@ class locateTest(unittest.TestCase):
                           'assumedLong': '350d35.3',
                           'error': 'assumedLat parm outside correct boundary.'}
          
-        self.assertEqual(nav.locate(self.inputDictionary), tempResultDict)
+        self.assertEqual(locate(self.inputDictionary), tempResultDict)
