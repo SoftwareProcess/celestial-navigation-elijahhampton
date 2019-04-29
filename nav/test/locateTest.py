@@ -63,7 +63,7 @@ class locateTest(unittest.TestCase):
 
 
 # Sad Path Test
-    def test200_010ShouldReturnWithErrorKeyIfXOfAssumedLatIsGTNegNinety(self):
+    def test200_010ShouldReturnWithErrorKeyIfXOfAssumedLatIsLTNegNinety(self):
         self.setParm('assumedLat', '-91d38.4')
         self.setParm('assumedLong', '350d35.3')
         self.setParm('corrections', '[[100,1d0.0]]')
@@ -71,6 +71,20 @@ class locateTest(unittest.TestCase):
           
         tempResultDict = {'op': 'locate',
                           'assumedLat': '-91d38.4',
+                          'assumedLong': '350d35.3',
+                          'corrections': '[[100,1d0.0]]',
+                          'error': 'assumedLat parm outside correct boundary.'}
+         
+        self.assertEqual(locate(self.inputDictionary), tempResultDict)
+        
+    def test200_010ShouldReturnWithErrorKeyIfXOfAssumedLatIsGTNinety(self):
+        self.setParm('assumedLat', '91d38.4')
+        self.setParm('assumedLong', '350d35.3')
+        self.setParm('corrections', '[[100,1d0.0]]')
+        self.setParm('op', 'locate')
+          
+        tempResultDict = {'op': 'locate',
+                          'assumedLat': '91d38.4',
                           'assumedLong': '350d35.3',
                           'corrections': '[[100,1d0.0]]',
                           'error': 'assumedLat parm outside correct boundary.'}
