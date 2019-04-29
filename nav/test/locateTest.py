@@ -148,14 +148,28 @@ class locateTest(unittest.TestCase):
         self.assertEqual(locate(self.inputDictionary), tempResultDict)
         
     def test200_010ShouldReturnWithErrorKeyIfXOfAssumedLongGT360(self):
-        self.setParm('assumedLat', '361d38.4')
-        self.setParm('assumedLong', '-2d35.3')
+        self.setParm('assumedLat', '-53d38.4')
+        self.setParm('assumedLong', '361d35.3')
         self.setParm('corrections', '[[100,1d0.0]]')
         self.setParm('op', 'locate')
           
         tempResultDict = {'op': 'locate',
-                          'assumedLat': '361d38.4',
-                          'assumedLong': '-2d35.3',
+                          'assumedLat': '-53d38.4',
+                          'assumedLong': '361d35.3',
+                          'corrections': '[[100,1d0.0]]',
+                          'error': 'assumedLong parm outside correct boundary.'}
+         
+        self.assertEqual(locate(self.inputDictionary), tempResultDict)
+        
+    def test200_010ShouldReturnWithErrorKeyIfYOfAssumedLongLT0(self):
+        self.setParm('assumedLat', '-53d38.4')
+        self.setParm('assumedLong', '350d-2.0')
+        self.setParm('corrections', '[[100,1d0.0]]')
+        self.setParm('op', 'locate')
+          
+        tempResultDict = {'op': 'locate',
+                          'assumedLat': '-53d38.4',
+                          'assumedLong': '350d-2.0',
                           'corrections': '[[100,1d0.0]]',
                           'error': 'assumedLong parm outside correct boundary.'}
          
