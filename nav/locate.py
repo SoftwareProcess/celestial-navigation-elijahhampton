@@ -73,6 +73,10 @@ def locate(values=None):
     values['precision'] = precision
     values['accuracy'] = 'NA'
     
+    print values['presentLat']
+    print values['presentLong']
+    print values['precision']
+    
 
     return values
 
@@ -141,7 +145,7 @@ def precisionFunction(distanceValues, azimuthValues, nsCorrection, ewCorrection)
         correctedAzimuthY=float(azimuthValues[i].split('d')[1]) / 60
         correctedAzimuthSum=math.radians(correctedAzimuthX + correctedAzimuthY)
         result = math.sqrt(math.pow(distanceValues[i] * math.cos(correctedAzimuthSum) - nsCorrection,2 )
-        + math.pow(distanceValues[i] + math.sin(correctedAzimuthSum) - ewCorrection, 2)
+        + math.pow(distanceValues[i] + math.sin(correctedAzimuthSum) - ewCorrection, 2))
         tempSum = tempSum + result
         i += 1
     return tempSum
