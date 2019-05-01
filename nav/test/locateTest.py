@@ -60,7 +60,23 @@ class locateTest(unittest.TestCase):
 #         self.setParm('op', 'locate')
 
 # Happy Path Test
-
+    def test200_010ShouldReturnWithCorrectKeysAndValuesAndNoError(self):
+        self.setParm('assumedLat', '-53d38.4')
+        self.setParm('assumedLong', '350d35.3')
+        self.setParm('corrections', '[[100,1d0.0]]')
+        self.setParm('op', 'locate')
+          
+        tempResultDict = {'op': 'locate',
+                          'assumedLat': '-53d38.4',
+                          'assumedLong': '350d35.3',
+                          'corrections': '[[100,1d0.0]]',
+                          'presentLat': '-51d58.4',
+                          'presentLong': '350d37.0',
+                          'precision': '0',
+                          'accuracy': 'NA',
+                          }
+         
+        self.assertEqual(locate(self.inputDictionary), tempResultDict)
 
 # Sad Path Test
     def test200_010ShouldReturnWithErrorKeyIfXOfAssumedLatIsLTNegNinety(self):
