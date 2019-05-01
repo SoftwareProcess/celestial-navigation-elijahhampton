@@ -59,9 +59,9 @@ def locate(values=None):
     assumedLatY = float(assumedLat.split('d')[1])
     calcAssumedLat = assumedLatX + (assumedLatY / 60)
     
-    presentLat = int(int(assumedLat) + (nsCorrection / 60))
+    presentLat = int(calcAssumedLat + (nsCorrection / 60))
     presentLatEx = round((presentLat) * 60, 1)
-    presentLong = int(float(assumedLongY) + (ewCorrection / 60))
+    presentLong = int(calcAssumedLong + (ewCorrection / 60))
     presentLongEx = round((presentLong) * 60, 1)
     
     precision = calculationPrecision(distanceArr, azimuthArr, nsCorrection, ewCorrection)
