@@ -140,8 +140,8 @@ def precisionFunction(distanceValues, azimuthValues, nsCorrection, ewCorrection)
         correctedAzimuthX=int(azimuthValues[i].split('d')[0])
         correctedAzimuthY=float(azimuthValues[i].split('d')[1]) / 60
         correctedAzimuthSum=math.radians(correctedAzimuthX + correctedAzimuthY)
-        func = math.sqrt(math.pow(distanceValues[i] * math.cos(correctedAzimuthSum) - nsCorrection,2 )
+        result = math.sqrt(math.pow(distanceValues[i] * math.cos(correctedAzimuthSum) - nsCorrection,2 )
         + math.pow(distanceValues[i] + math.sin(correctedAzimuthSum) - ewCorrection, 2)
-        tempSum += func
+        tempSum += result
         i += 1
     return tempSum
