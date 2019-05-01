@@ -42,8 +42,8 @@ def locate(values=None):
     ewCorrection = 0
     precision = 0
     
-    assumedLat = values['assumedLat'].split('d')
-    assumedLong = values['assumedLong'].split('d')
+    assumedLat = values['assumedLat']
+    assumedLong = values['assumedLong']
     
     distanceArr = getCorrectedDistances(corrections)
     azimuthArr = getCorrectedAzimuths(corrections)
@@ -51,12 +51,12 @@ def locate(values=None):
     nsCorrection = math.degrees(calculateNsCorrection(distanceArr, azimuthArr))
     ewCorrection = math.degrees(calculateEwCorrection(distanceArr, azimuthArr))
     
-    assumedLongX = int(assumedLong.split(',')[0])
-    assumedLongY = float(assumedLong.split(',')[1])
+    assumedLongX = int(assumedLong.split('d')[0])
+    assumedLongY = float(assumedLong.split('d')[1])
     calcAssumedLong = assumedLongX = (assumedLongY / 60)
     
-    assumedLatX = int(assumedLat.split(',')[0])
-    assumedLatY = float(assumedLat.split(',')[1])
+    assumedLatX = int(assumedLat.split('d')[0])
+    assumedLatY = float(assumedLat.split('d')[1])
     calcAssumedLat = assumedLatX + (assumedLatY / 60)
     
     presentLat = int(assumedLat + (nsCorrection / 60))
