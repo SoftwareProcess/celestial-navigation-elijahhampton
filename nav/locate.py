@@ -142,6 +142,6 @@ def precisionFunction(distanceValues, azimuthValues, nsCorrection, ewCorrection)
         correctedAzimuthSum=math.radians(correctedAzimuthX + correctedAzimuthY)
         result = math.sqrt(math.pow(distanceValues[i] * math.cos(correctedAzimuthSum) - nsCorrection,2 )
         + math.pow(distanceValues[i] + math.sin(correctedAzimuthSum) - ewCorrection, 2)
-        tempSum += result
+        tempSum = tempSum + result
         i += 1
     return tempSum
